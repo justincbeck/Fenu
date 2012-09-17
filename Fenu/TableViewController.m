@@ -7,8 +7,10 @@
 //
 
 #import "TableViewController.h"
+#import "ContainerViewController.h"
+#import "DetailView.h"
 
-@interface TableViewController ()
+@interface TableViewController () <UITableViewDelegate>
 
 @end
 
@@ -27,6 +29,10 @@
 {
     [super viewDidLoad];
 
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -44,16 +50,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +65,29 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    switch ([indexPath row]) {
+        case 0:
+            cell.contentView.backgroundColor = [UIColor redColor];
+            break;
+        case 1:
+            cell.contentView.backgroundColor = [UIColor orangeColor];
+            break;
+        case 2:
+            cell.contentView.backgroundColor = [UIColor yellowColor];
+            break;
+        case 3:
+            cell.contentView.backgroundColor = [UIColor greenColor];
+            break;
+        case 4:
+            cell.contentView.backgroundColor = [UIColor blueColor];
+            break;
+        case 5:
+            cell.contentView.backgroundColor = [UIColor purpleColor];
+            break;
+            
+        default:
+            break;
+    }
     
     return cell;
 }
@@ -109,13 +135,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    UIColor *color;
+    
+    switch ([indexPath row]) {
+        case 0:
+            color = [UIColor redColor];
+            break;
+        case 1:
+            color = [UIColor orangeColor];
+            break;
+        case 2:
+            color = [UIColor yellowColor];
+            break;
+        case 3:
+            color = [UIColor greenColor];
+            break;
+        case 4:
+            color = [UIColor blueColor];
+            break;
+        case 5:
+            color = [UIColor purpleColor];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [((ContainerViewController *)self.parentViewController) createDetailControllerWithColor:color];
 }
 
 @end

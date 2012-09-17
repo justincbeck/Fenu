@@ -7,6 +7,8 @@
 //
 
 #import "ContainerViewController.h"
+#import "TableViewController.h"
+#import "DetailViewController.h"
 
 @interface ContainerViewController ()
 
@@ -14,11 +16,15 @@
 
 @implementation ContainerViewController
 
+@synthesize tableViewController = _tableViewController;
+@synthesize detailViewController = _detailViewController;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+        _detailViewController = [[DetailViewController alloc] initWithColor:[UIColor grayColor]];
     }
     return self;
 }
@@ -26,7 +32,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor yellowColor];
+
+    [self addChildViewController:_tableViewController];
+    [self addChildViewController:_detailViewController];
+    
+    [self.view addSubview:_tableViewController.view];
+    [self.view addSubview:_detailViewController.view];
+}
+
+- (void)createDetailControllerWithColor:(UIColor *) color
+{
+    [_detailViewController removeFromParentViewController];
+    _detailViewController = [[DetailViewController alloc] initWithColor:color];
+    
+    [self addChildViewController:_detailViewController];
+    [self.view addSubview:_detailViewController.view];
 }
 
 - (void)didReceiveMemoryWarning

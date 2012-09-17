@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailView.h"
 
 @interface DetailViewController : UIViewController
+{
+    DetailView *_detailView;
+}
+
+@property (nonatomic, strong) UIView *detailView;
+
+- (id)initWithColor:(UIColor *)color;
 
 @end

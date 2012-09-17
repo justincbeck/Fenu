@@ -7,32 +7,56 @@
 //
 
 #import "DetailViewController.h"
+#import "DetailView.h"
 
 @interface DetailViewController ()
+{
+    UIColor *_color;
+}
+
+@property (nonatomic, strong) UIColor* color;
 
 @end
 
 @implementation DetailViewController
 
+@synthesize detailView = _detailView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
+}
+
+- (id)initWithColor:(UIColor *)color
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        _color = color;
+    }
+    return self;
+}
+
+- (void)loadView
+{
+    _detailView = [[DetailView alloc] initWithFrame:CGRectMake(280.0f, 0.0f, 320.0f, 460.0f)];
+    self.view = _detailView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    _detailView.backgroundColor = _color;
+    [_detailView snapBack];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -19,6 +19,7 @@
 		986201B3160565C50072CB92 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
 		986201B6160566050072CB92 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
 		986201B9160566250072CB92 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B8160566250072CB92 /* DetailViewController.m */; };
+		986F8E6016078C9A00AAA7E6 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 986F8E5F16078C9A00AAA7E6 /* DetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		986201B5160566050072CB92 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		986201B7160566250072CB92 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
 		986201B8160566250072CB92 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
+		986F8E5E16078C9A00AAA7E6 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
+		986F8E5F16078C9A00AAA7E6 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				986201B5160566050072CB92 /* TableViewController.m */,
 				986201B7160566250072CB92 /* DetailViewController.h */,
 				986201B8160566250072CB92 /* DetailViewController.m */,
+				986F8E5E16078C9A00AAA7E6 /* DetailView.h */,
+				986F8E5F16078C9A00AAA7E6 /* DetailView.m */,
 			);
 			path = Fenu;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				986201B3160565C50072CB92 /* ContainerViewController.m in Sources */,
 				986201B6160566050072CB92 /* TableViewController.m in Sources */,
 				986201B9160566250072CB92 /* DetailViewController.m in Sources */,
+				986F8E6016078C9A00AAA7E6 /* DetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +216,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -223,7 +229,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -243,7 +249,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -291,6 +297,7 @@
 				9862019D160409EA0072CB92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

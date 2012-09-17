@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewController.h"
+#import "DetailViewController.h"
 
 @interface ContainerViewController : UIViewController
+{
+    TableViewController *_tableViewController;
+    DetailViewController *_detailViewController;
+}
+
+@property (nonatomic, strong) TableViewController *tableViewController;
+@property (nonatomic, strong) DetailViewController *detailViewController;
+
+- (void)createDetailControllerWithColor:(UIColor *)color;
 
 @end
