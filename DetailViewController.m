@@ -42,7 +42,7 @@
 
 - (void)loadView
 {
-    _detailView = [[DetailView alloc] initWithFrame:CGRectMake(280.0f, 0.0f, 320.0f, 460.0f)];
+    _detailView = [[DetailView alloc] initWithFrame:CGRectZero];
     self.view = _detailView;
 }
 
@@ -51,7 +51,7 @@
     [super viewDidLoad];
     
     _detailView.backgroundColor = _color;
-    [_detailView snapBack];
+    [_detailView snapToCoordinates:CGPointMake(0.0f, 0.0f)];
 }
 
 - (void)didReceiveMemoryWarning

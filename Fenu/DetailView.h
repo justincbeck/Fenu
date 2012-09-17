@@ -10,7 +10,6 @@
 
 @interface DetailView : UIView
 
-- (void)snapBack;
-- (void)snapForward;
+- (void)snapToCoordinates:(CGPoint) point;
 
 @end

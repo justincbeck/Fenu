@@ -65,29 +65,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    switch ([indexPath row]) {
-        case 0:
-            cell.contentView.backgroundColor = [UIColor redColor];
-            break;
-        case 1:
-            cell.contentView.backgroundColor = [UIColor orangeColor];
-            break;
-        case 2:
-            cell.contentView.backgroundColor = [UIColor yellowColor];
-            break;
-        case 3:
-            cell.contentView.backgroundColor = [UIColor greenColor];
-            break;
-        case 4:
-            cell.contentView.backgroundColor = [UIColor blueColor];
-            break;
-        case 5:
-            cell.contentView.backgroundColor = [UIColor purpleColor];
-            break;
-            
-        default:
-            break;
-    }
+    UIColor* color = [self selectColor:[indexPath row]];
+    cell.contentView.backgroundColor = color;
     
     return cell;
 }
@@ -135,9 +114,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [((ContainerViewController *)self.parentViewController) createDetailControllerWithColor:[self selectColor:[indexPath row]] andFrame:CGRectMake(280.0f, 0.0f, 320.0f, 460.0f)];
+}
+
+- (UIColor *)selectColor:(int)index
+{
     UIColor *color;
     
-    switch ([indexPath row]) {
+    switch (index) {
         case 0:
             color = [UIColor redColor];
             break;
@@ -161,7 +145,7 @@
             break;
     }
     
-    [((ContainerViewController *)self.parentViewController) createDetailControllerWithColor:color];
+    return color;
 }
 
 @end

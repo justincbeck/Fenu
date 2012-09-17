@@ -24,7 +24,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
-        _detailViewController = [[DetailViewController alloc] initWithColor:[UIColor grayColor]];
     }
     return self;
 }
@@ -36,19 +35,27 @@
     self.view.backgroundColor = [UIColor yellowColor];
 
     [self addChildViewController:_tableViewController];
-    [self addChildViewController:_detailViewController];
-    
     [self.view addSubview:_tableViewController.view];
-    [self.view addSubview:_detailViewController.view];
+    
+    [self createDetailControllerWithColor:[UIColor grayColor] andFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f)];
+    _detailViewController.view.frame = CGRectMake(0.0f, 0.0f, 320.0f, 460.0f);
 }
 
-- (void)createDetailControllerWithColor:(UIColor *) color
+- (void)createDetailControllerWithColor:(UIColor *)color andFrame:(CGRect)frame
 {
-    [_detailViewController removeFromParentViewController];
+    if (_detailViewController != nil)
+    {
+        [_detailViewController.view removeFromSuperview];
+        [_detailViewController removeFromParentViewController];
+    }
+    
     _detailViewController = [[DetailViewController alloc] initWithColor:color];
+    _detailViewController.view.frame = frame;
     
     [self addChildViewController:_detailViewController];
     [self.view addSubview:_detailViewController.view];
+    
+    [(DetailView*) _detailViewController.view snapToCoordinates:CGPointMake(0.0f, 0.0f)];
 }
 
 - (void)didReceiveMemoryWarning

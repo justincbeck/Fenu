@@ -29,7 +29,7 @@
     float deltaX = loc.x - prevLoc.x;
     frame.origin.x += deltaX;
     
-    if (frame.origin.x > 0.0f && frame.origin.x < 320.0f)
+    if (frame.origin.x > 0.0f && frame.origin.x < 280.0f)
     {
         [self setFrame:frame];
     }
@@ -39,37 +39,31 @@
 {
     if (self.frame.origin.x < 160.0f)
     {
-        [self snapBack];
+        [self snapToCoordinates:CGPointMake(0.0f, 0.0f)];
     }
-    
+   
     if (self.frame.origin.x > 160.0f)
     {
-        [self snapForward];
+        [self snapToCoordinates:CGPointMake(280.0f, 0.0f)];
     }
 }
 
-- (void)snapBack
+- (void)snapToCoordinates:(CGPoint)point
 {
     CGRect frame = self.frame;
+    frame.origin.x = point.x;
+    float duration = [self calculateDuration:point];
     
-    frame.origin.x = 0.0f;
-    [UIView animateWithDuration:0.15f delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
         self.frame = frame;
     } completion:^(BOOL finished){
         
     }];
 }
 
-- (void)snapForward
+- (float)calculateDuration:(CGPoint)point
 {
-    CGRect frame = self.frame;
-    
-    frame.origin.x = 280.0f;
-    [UIView animateWithDuration:0.15f delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
-        self.frame = frame;
-    } completion:^(BOOL finished){
-            
-    }];
+    return (ABS(point.x - self.frame.origin.x) / 320.0f) * 0.3;
 }
 
 /*
