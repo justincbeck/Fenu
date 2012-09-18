@@ -19,7 +19,6 @@
 		986201B3160565C50072CB92 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
 		986201B6160566050072CB92 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
 		986201B9160566250072CB92 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B8160566250072CB92 /* DetailViewController.m */; };
-		986F8E6016078C9A00AAA7E6 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 986F8E5F16078C9A00AAA7E6 /* DetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +41,6 @@
 		986201B5160566050072CB92 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		986201B7160566250072CB92 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
 		986201B8160566250072CB92 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
-		986F8E5E16078C9A00AAA7E6 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
-		986F8E5F16078C9A00AAA7E6 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +96,6 @@
 				986201B5160566050072CB92 /* TableViewController.m */,
 				986201B7160566250072CB92 /* DetailViewController.h */,
 				986201B8160566250072CB92 /* DetailViewController.m */,
-				986F8E5E16078C9A00AAA7E6 /* DetailView.h */,
-				986F8E5F16078C9A00AAA7E6 /* DetailView.m */,
 			);
 			path = Fenu;
 			sourceTree = "<group>";
@@ -189,7 +184,6 @@
 				986201B3160565C50072CB92 /* ContainerViewController.m in Sources */,
 				986201B6160566050072CB92 /* TableViewController.m in Sources */,
 				986201B9160566250072CB92 /* DetailViewController.m in Sources */,
-				986F8E6016078C9A00AAA7E6 /* DetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

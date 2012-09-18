@@ -8,7 +8,6 @@
 
 #import "TableViewController.h"
 #import "ContainerViewController.h"
-#import "DetailView.h"
 
 @interface TableViewController () <UITableViewDelegate>
 

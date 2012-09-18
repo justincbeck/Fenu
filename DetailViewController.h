@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DetailView.h"
 
 @interface DetailViewController : UIViewController
 {
-    DetailView *_detailView;
+    UIView *_detailView;
 }
 
 @property (nonatomic, strong) UIView *detailView;

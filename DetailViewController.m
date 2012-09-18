@@ -7,7 +7,6 @@
 //
 
 #import "DetailViewController.h"
-#import "DetailView.h"
 #import "ContainerViewController.h"
 
 @interface DetailViewController ()
@@ -27,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _detailView = [[DetailView alloc] initWithFrame:CGRectZero];
+        _detailView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return self;
 }
@@ -36,7 +35,7 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _detailView = [[DetailView alloc] initWithFrame:CGRectZero];
+        _detailView = [[UIView alloc] initWithFrame:CGRectZero];
         _color = color;
     }
     return self;
