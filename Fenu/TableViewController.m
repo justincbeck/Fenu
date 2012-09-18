@@ -64,6 +64,7 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellEditingStyleNone];
     
     UIColor* color = [self selectColor:[indexPath row]];
     cell.contentView.backgroundColor = color;
@@ -114,7 +115,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [((ContainerViewController *)self.parentViewController) createDetailControllerWithColor:[self selectColor:[indexPath row]] andFrame:CGRectMake(280.0f, 0.0f, 320.0f, 460.0f)];
+    [((ContainerViewController *)self.parentViewController) colorSelected:[self selectColor:[indexPath row]]];
 }
 
 - (UIColor *)selectColor:(int)index

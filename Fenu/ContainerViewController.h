@@ -19,6 +19,6 @@
 @property (nonatomic, strong) TableViewController *tableViewController;
 @property (nonatomic, strong) DetailViewController *detailViewController;
 
-- (void)createDetailControllerWithColor:(UIColor *)color andFrame:(CGRect)frame;
+- (void)colorSelected:(UIColor *)color;
 
 @end

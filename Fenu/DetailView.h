@@ -10,6 +10,4 @@
 
 @interface DetailView : UIView
 
-- (void)snapToCoordinates:(CGPoint) point;
-
 @end
