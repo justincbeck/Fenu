@@ -13,11 +13,11 @@
 @interface ContainerViewController : UIViewController
 {
     TableViewController *_tableViewController;
-    DetailViewController *_detailViewController;
+    UINavigationController *_detailNavController;
 }
 
 @property (nonatomic, strong) TableViewController *tableViewController;
-@property (nonatomic, strong) DetailViewController *detailViewController;
+@property (nonatomic, strong) UINavigationController *detailNavController;
 
 - (void)colorSelected:(UIColor *)color;
 

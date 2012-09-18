@@ -19,7 +19,7 @@
 @implementation ContainerViewController
 
 @synthesize tableViewController = _tableViewController;
-@synthesize detailViewController = _detailViewController;
+@synthesize detailNavController = _detailNavController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,24 +40,49 @@
 
 - (void)colorSelected:(UIColor *)color
 {
-    if (_detailViewController != nil)
+    if (_detailNavController != nil)
     {
-        [_detailViewController.view removeFromSuperview];
-        [_detailViewController removeFromParentViewController];
+        [_detailNavController.view removeFromSuperview];
+        [_detailNavController removeFromParentViewController];
     }
     
+    _detailNavController = [self createControllerWithColor:color];
+    
+    [self addChildViewController:_detailNavController];
+    [self.view addSubview:_detailNavController.view];
+    
+    [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+}
+
+- (void)showMenu:(id)sender
+{
+    if (_detailNavController.view.frame.origin.x == 260.0f)
+    {
+        [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+    }
+    else
+    {
+        [self snapView:_detailNavController.view toCoordinates:CGPointMake(260.0f, 0.0f)];
+    }
+}
+
+- (UINavigationController *)createControllerWithColor:(UIColor *)color
+{
     UIPanGestureRecognizer* gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
     [gestureRecognizer setMinimumNumberOfTouches:1];
     [gestureRecognizer setMaximumNumberOfTouches:1];
     
-    _detailViewController = [[DetailViewController alloc] initWithColor:color];
-    _detailViewController.view.frame = CGRectMake(280.0f, 0.0f, 320.0f, 460.0f);
-    [_detailViewController.view addGestureRecognizer:gestureRecognizer];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithColor:color];
+    detailViewController.view.frame = CGRectMake(0.0f, 0.0f, 320.0f, 416.0f);
     
-    [self addChildViewController:_detailViewController];
-    [self.view addSubview:_detailViewController.view];
+    _detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    _detailNavController.view.frame = CGRectMake(260.0f, 0.0f, 320.0f, 460.0f);
+    [_detailNavController.view addGestureRecognizer:gestureRecognizer];
     
-    [self snapView:_detailViewController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+    UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleDone target:self action:@selector(showMenu:)];
+    detailViewController.navigationItem.leftBarButtonItem = menuBarButtonItem;
+    
+    return _detailNavController;
 }
 
 - (void)panGesture:(UIPanGestureRecognizer *)gesture
@@ -69,7 +94,7 @@
     if ([gesture state] == UIGestureRecognizerStateChanged)
     {
         frame.origin.x = frame.origin.x + point.x;
-        if (frame.origin.x >= 0.0f && frame.origin.x <= 280.0f)
+        if (frame.origin.x >= 0.0f && frame.origin.x <= 260.0f)
         {
             [view setFrame:frame];
             [gesture setTranslation:CGPointZero inView:view.superview];
@@ -83,7 +108,7 @@
         }
         else
         {
-            [self snapView:view toCoordinates:CGPointMake(280.0f, 0.0f)];
+            [self snapView:view toCoordinates:CGPointMake(260.0f, 0.0f)];
         }
     }
 }
@@ -92,7 +117,7 @@
 {
     CGRect frame = view.frame;
     frame.origin.x = point.x;
-    float duration = (ABS(point.x - view.frame.origin.x) / 280.0f) * 0.3f;
+    float duration = (ABS(point.x - view.frame.origin.x) / 260.0f) * 0.3f;
     
     [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
         view.frame = frame;
