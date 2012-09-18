@@ -19,6 +19,19 @@
 		986201B3160565C50072CB92 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
 		986201B6160566050072CB92 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
 		986201B9160566250072CB92 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B8160566250072CB92 /* DetailViewController.m */; };
+		986F8E811608B61C00AAA7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9862018D160409EA0072CB92 /* main.m */; };
+		986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98620191160409EA0072CB92 /* AppDelegate.m */; };
+		986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
+		986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
+		986F8E851608B61C00AAA7E6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B8160566250072CB92 /* DetailViewController.m */; };
+		986F8E871608B61C00AAA7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620181160409EA0072CB92 /* UIKit.framework */; };
+		986F8E881608B61C00AAA7E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620183160409EA0072CB92 /* Foundation.framework */; };
+		986F8E891608B61C00AAA7E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620185160409EA0072CB92 /* CoreGraphics.framework */; };
+		986F8E8B1608B61C00AAA7E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9862018A160409EA0072CB92 /* InfoPlist.strings */; };
+		986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620193160409EA0072CB92 /* Default.png */; };
+		986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620195160409EA0072CB92 /* Default@2x.png */; };
+		986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620197160409EA0072CB92 /* Default-568h@2x.png */; };
+		986F8E981608BC5C00AAA7E6 /* libTestStudioExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 986F8E971608BC5C00AAA7E6 /* libTestStudioExtension.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +54,9 @@
 		986201B5160566050072CB92 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		986201B7160566250072CB92 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
 		986201B8160566250072CB92 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
+		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		986F8E941608B61C00AAA7E6 /* FenuQA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FenuQA-Info.plist"; path = "/Users/jbeck/workspace/personal/Fenu/FenuQA-Info.plist"; sourceTree = "<absolute>"; };
+		986F8E971608BC5C00AAA7E6 /* libTestStudioExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestStudioExtension.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,17 @@
 				98620182160409EA0072CB92 /* UIKit.framework in Frameworks */,
 				98620184160409EA0072CB92 /* Foundation.framework in Frameworks */,
 				98620186160409EA0072CB92 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		986F8E861608B61C00AAA7E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986F8E871608B61C00AAA7E6 /* UIKit.framework in Frameworks */,
+				986F8E881608B61C00AAA7E6 /* Foundation.framework in Frameworks */,
+				986F8E891608B61C00AAA7E6 /* CoreGraphics.framework in Frameworks */,
+				986F8E981608BC5C00AAA7E6 /* libTestStudioExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				9862017D160409EA0072CB92 /* Fenu.app */,
+				986F8E921608B61C00AAA7E6 /* FenuQA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +131,8 @@
 		98620188160409EA0072CB92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				986F8E971608BC5C00AAA7E6 /* libTestStudioExtension.a */,
+				986F8E941608B61C00AAA7E6 /* FenuQA-Info.plist */,
 				98620189160409EA0072CB92 /* Fenu-Info.plist */,
 				9862018A160409EA0072CB92 /* InfoPlist.strings */,
 				9862018D160409EA0072CB92 /* main.m */,
@@ -134,6 +164,23 @@
 			productReference = 9862017D160409EA0072CB92 /* Fenu.app */;
 			productType = "com.apple.product-type.application";
 		};
+		986F8E7F1608B61C00AAA7E6 /* FenuQA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 986F8E8F1608B61C00AAA7E6 /* Build configuration list for PBXNativeTarget "FenuQA" */;
+			buildPhases = (
+				986F8E801608B61C00AAA7E6 /* Sources */,
+				986F8E861608B61C00AAA7E6 /* Frameworks */,
+				986F8E8A1608B61C00AAA7E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FenuQA;
+			productName = Fenu;
+			productReference = 986F8E921608B61C00AAA7E6 /* FenuQA.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				9862017C160409EA0072CB92 /* Fenu */,
+				986F8E7F1608B61C00AAA7E6 /* FenuQA */,
 			);
 		};
 /* End PBXProject section */
@@ -172,6 +220,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		986F8E8A1608B61C00AAA7E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986F8E8B1608B61C00AAA7E6 /* InfoPlist.strings in Resources */,
+				986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */,
+				986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */,
+				986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -184,6 +243,18 @@
 				986201B3160565C50072CB92 /* ContainerViewController.m in Sources */,
 				986201B6160566050072CB92 /* TableViewController.m in Sources */,
 				986201B9160566250072CB92 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		986F8E801608B61C00AAA7E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986F8E811608B61C00AAA7E6 /* main.m in Sources */,
+				986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */,
+				986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */,
+				986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */,
+				986F8E851608B61C00AAA7E6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +344,50 @@
 			};
 			name = Release;
 		};
+		986F8E901608B61C00AAA7E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fenu/Fenu-Prefix.pch";
+				INFOPLIST_FILE = "FenuQA-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Fenu\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"/Users/jbeck/workspace/personal/Fenu/Fenu/libTestStudioExtension.a\"",
+				);
+				PRODUCT_NAME = FenuQA;
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		986F8E911608B61C00AAA7E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fenu/Fenu-Prefix.pch";
+				INFOPLIST_FILE = "FenuQA-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Fenu\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"/Users/jbeck/workspace/personal/Fenu/Fenu/libTestStudioExtension.a\"",
+				);
+				PRODUCT_NAME = FenuQA;
+				VALID_ARCHS = armv7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -290,6 +405,15 @@
 			buildConfigurations = (
 				9862019C160409EA0072CB92 /* Debug */,
 				9862019D160409EA0072CB92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		986F8E8F1608B61C00AAA7E6 /* Build configuration list for PBXNativeTarget "FenuQA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				986F8E901608B61C00AAA7E6 /* Debug */,
+				986F8E911608B61C00AAA7E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

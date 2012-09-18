@@ -14,7 +14,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     ContainerViewController *viewController = [[ContainerViewController alloc] initWithNibName:nil bundle:nil];
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
