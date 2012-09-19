@@ -14,13 +14,9 @@
     UIColor *_color;
 }
 
-@property (nonatomic, strong) UIColor* color;
-
 @end
 
 @implementation DetailViewController
-
-@synthesize detailView = _detailView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +40,7 @@
 - (void)loadView
 {
     self.view = _detailView;
+    self.view.frame = self.view.superview.frame;
 }
 
 - (void)viewDidLoad
