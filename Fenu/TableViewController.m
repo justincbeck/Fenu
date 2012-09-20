@@ -10,7 +10,9 @@
 #import "ContainerViewController.h"
 
 @interface TableViewController () <UITableViewDelegate>
-
+{
+    UITableViewStyle _tableViewStyle;
+}
 @end
 
 @implementation TableViewController
@@ -19,17 +21,20 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        _tableViewStyle = style;
     }
     return self;
+}
+
+- (void)loadView
+{
+    [super loadView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -61,8 +66,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     [cell setSelectionStyle:UITableViewCellEditingStyleNone];
     
     UIColor* color = [self selectColor:[indexPath row]];

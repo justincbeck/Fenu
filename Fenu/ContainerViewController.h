@@ -11,13 +11,6 @@
 #import "DetailViewController.h"
 
 @interface ContainerViewController : UIViewController
-{
-    TableViewController *_tableViewController;
-    UINavigationController *_detailNavController;
-}
-
-@property (nonatomic, strong) TableViewController *tableViewController;
-@property (nonatomic, strong) UINavigationController *detailNavController;
 
 - (void)colorSelected:(UIColor *)color;
 

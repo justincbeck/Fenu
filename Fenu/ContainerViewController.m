@@ -11,13 +11,12 @@
 #import "DetailViewController.h"
 
 @interface ContainerViewController ()
-
-- (void)snapView:(UIView *)view toCoordinates:(CGPoint)point;
+{
+    TableViewController *_tableViewController;
+    UINavigationController *_detailNavController;
+}
 
 @end
-
-float const kMaxDetailXLandscape = 420.0f; // Use relative (window) widths
-float const kMaxDetailXPortrait = 260.0f; // User relative (see above)
 
 @implementation ContainerViewController
 
@@ -34,7 +33,19 @@ float const kMaxDetailXPortrait = 260.0f; // User relative (see above)
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor cyanColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     [self addChildViewController:_tableViewController];
+    
+    CGRect frame = _tableViewController.view.frame;
+    frame.origin.y -= [[UIApplication sharedApplication] statusBarFrame].size.height;
+    _tableViewController.view.frame = frame;
+    
     [self.view addSubview:_tableViewController.view];
 }
 
@@ -51,19 +62,11 @@ float const kMaxDetailXPortrait = 260.0f; // User relative (see above)
     [self addChildViewController:_detailNavController];
     [self.view addSubview:_detailNavController.view];
     
+    CGRect frame = _detailNavController.view.frame;
+    frame.origin.x = [self getMaxX];
+    _detailNavController.view.frame = frame;
+    
     [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
-}
-
-- (void)showMenu:(id)sender
-{
-    if (_detailNavController.view.frame.origin.x == [self getMaxX])
-    {
-        [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
-    }
-    else
-    {
-        [self snapView:_detailNavController.view toCoordinates:CGPointMake([self getMaxX], 0.0f)];
-    }
 }
 
 - (UINavigationController *)createControllerWithColor:(UIColor *)color
@@ -78,12 +81,34 @@ float const kMaxDetailXPortrait = 260.0f; // User relative (see above)
     
     _detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     
-    CGRect frame = self.view.frame;
-    frame.origin.x = [self getMaxX];
-    _detailNavController.view.frame = frame;
     [_detailNavController.view addGestureRecognizer:gestureRecognizer];
     
     return _detailNavController;
+}
+
+- (void)snapView:(UIView *)view toCoordinates:(CGPoint)point
+{
+    CGRect frame = view.frame;
+    frame.origin.x = point.x;
+    float duration = (ABS(point.x - view.frame.origin.x) / [self getMaxX]) * 0.3f;
+    
+    [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
+        view.frame = frame;
+    } completion:^(BOOL finished){
+        
+    }];
+}
+
+- (void)showMenu:(id)sender
+{
+    if (_detailNavController.view.frame.origin.x == [self getMaxX])
+    {
+        [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+    }
+    else
+    {
+        [self snapView:_detailNavController.view toCoordinates:CGPointMake([self getMaxX], 0.0f)];
+    }
 }
 
 - (void)panGesture:(UIPanGestureRecognizer *)gesture
@@ -114,61 +139,18 @@ float const kMaxDetailXPortrait = 260.0f; // User relative (see above)
     }
 }
 
-- (void)snapView:(UIView *)view toCoordinates:(CGPoint)point
-{
-    CGRect frame = view.frame;
-    frame.origin.x = point.x;
-    float duration = (ABS(point.x - view.frame.origin.x) / [self getMaxX]) * 0.3f;
-    
-    [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
-        view.frame = frame;
-    } completion:^(BOOL finished){
-        
-    }];
-}
-
 - (float)getMaxX
 {
-    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
-    {
-        return kMaxDetailXLandscape;
-    }
-    else
-    {
-        return kMaxDetailXPortrait;
-    }
+    return _detailNavController.view.frame.size.width - 63.0f;
 }
 
-- (float)getMaxY
-{
-    if (UIDeviceOrientationIsLandscape(self.interfaceOrientation))
-    {
-        return 256.0f;
-    }
-    else
-    {
-        return 416.0f;
-    }
-}
-
-// This will go away once the auto sizeing is taken care of...
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     CGRect frame = _detailNavController.view.frame;
     
-    if (UIDeviceOrientationIsLandscape(toInterfaceOrientation))
+    if (_detailNavController.view.frame.origin.x != 0.0f)
     {
-        if (_detailNavController.view.frame.origin.x == kMaxDetailXPortrait)
-        {
-            frame.origin.x = kMaxDetailXLandscape;
-        }
-    }
-    else
-    {
-        if (_detailNavController.view.frame.origin.x == kMaxDetailXLandscape)
-        {
-            frame.origin.x = kMaxDetailXPortrait;
-        }
+        frame.origin.x = frame.size.height - 43.0f;
     }
     
     _detailNavController.view.frame = frame;
