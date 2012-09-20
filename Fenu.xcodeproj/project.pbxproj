@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98386862160B943F0077C817 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98386861160B943F0077C817 /* DetailViewController.m */; };
 		98620182160409EA0072CB92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620181160409EA0072CB92 /* UIKit.framework */; };
 		98620184160409EA0072CB92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620183160409EA0072CB92 /* Foundation.framework */; };
 		98620186160409EA0072CB92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620185160409EA0072CB92 /* CoreGraphics.framework */; };
@@ -18,12 +19,10 @@
 		98620198160409EA0072CB92 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620197160409EA0072CB92 /* Default-568h@2x.png */; };
 		986201B3160565C50072CB92 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
 		986201B6160566050072CB92 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
-		986201B9160566250072CB92 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B8160566250072CB92 /* DetailViewController.m */; };
 		986F8E811608B61C00AAA7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9862018D160409EA0072CB92 /* main.m */; };
 		986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98620191160409EA0072CB92 /* AppDelegate.m */; };
 		986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
 		986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
-		986F8E851608B61C00AAA7E6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B8160566250072CB92 /* DetailViewController.m */; };
 		986F8E871608B61C00AAA7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620181160409EA0072CB92 /* UIKit.framework */; };
 		986F8E881608B61C00AAA7E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620183160409EA0072CB92 /* Foundation.framework */; };
 		986F8E891608B61C00AAA7E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620185160409EA0072CB92 /* CoreGraphics.framework */; };
@@ -35,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		98386860160B943F0077C817 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		98386861160B943F0077C817 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9862017D160409EA0072CB92 /* Fenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98620181160409EA0072CB92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		98620183160409EA0072CB92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,8 +53,6 @@
 		986201B2160565C50072CB92 /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		986201B4160566050072CB92 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		986201B5160566050072CB92 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		986201B7160566250072CB92 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = ../DetailViewController.h; sourceTree = "<group>"; };
-		986201B8160566250072CB92 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = ../DetailViewController.m; sourceTree = "<group>"; };
 		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		986F8E941608B61C00AAA7E6 /* FenuQA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FenuQA-Info.plist"; path = "/Users/jbeck/workspace/personal/Fenu/FenuQA-Info.plist"; sourceTree = "<absolute>"; };
 		986F8E971608BC5C00AAA7E6 /* libTestStudioExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestStudioExtension.a; sourceTree = "<group>"; };
@@ -122,8 +121,8 @@
 				986201B2160565C50072CB92 /* ContainerViewController.m */,
 				986201B4160566050072CB92 /* TableViewController.h */,
 				986201B5160566050072CB92 /* TableViewController.m */,
-				986201B7160566250072CB92 /* DetailViewController.h */,
-				986201B8160566250072CB92 /* DetailViewController.m */,
+				98386860160B943F0077C817 /* DetailViewController.h */,
+				98386861160B943F0077C817 /* DetailViewController.m */,
 			);
 			path = Fenu;
 			sourceTree = "<group>";
@@ -242,7 +241,7 @@
 				98620192160409EA0072CB92 /* AppDelegate.m in Sources */,
 				986201B3160565C50072CB92 /* ContainerViewController.m in Sources */,
 				986201B6160566050072CB92 /* TableViewController.m in Sources */,
-				986201B9160566250072CB92 /* DetailViewController.m in Sources */,
+				98386862160B943F0077C817 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +253,6 @@
 				986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */,
 				986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */,
 				986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */,
-				986F8E851608B61C00AAA7E6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

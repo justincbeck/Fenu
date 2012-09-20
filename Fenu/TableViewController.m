@@ -9,7 +9,7 @@
 #import "TableViewController.h"
 #import "ContainerViewController.h"
 
-@interface TableViewController () <UITableViewDelegate>
+@interface TableViewController ()
 {
     UITableViewStyle _tableViewStyle;
 }
@@ -42,6 +42,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
