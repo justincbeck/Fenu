@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PullRefreshTableViewController.h"
 
-@interface TableViewController : UITableViewController
+@interface TableViewController : PullRefreshTableViewController
 
 @end
