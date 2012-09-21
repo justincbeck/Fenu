@@ -7,7 +7,13 @@
 //
 
 #import "FeniAPI.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation FeniAPI
+
+- (void)doStuff
+{
+    NSLog(@"", AFNetworkingOperationDidFinishNotification);
+}
 
 @end
