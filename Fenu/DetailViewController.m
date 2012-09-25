@@ -11,7 +11,7 @@
 
 @interface DetailViewController ()
 {
-    UIColor *_color;
+    NSDictionary *_entry;
 }
 
 @end
@@ -27,12 +27,12 @@
     return self;
 }
 
-- (id)initWithColor:(UIColor *)color
+- (id)initWithEntry:(id)entry
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _detailView = [[UIView alloc] initWithFrame:CGRectZero];
-        _color = color;
+        _entry = entry;
     }
     return self;
 }
@@ -47,7 +47,12 @@
 {
     [super viewDidLoad];
     
-    _detailView.backgroundColor = _color;
+    _detailView.backgroundColor = [UIColor whiteColor];
+    
+    // TODO: Get rid of this: TEST (maybe come up with a custom view for this?)
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 130.0f, 15.0f)];
+    label.text = [_entry objectForKey:@"author"];
+    [_detailView addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning

@@ -15,6 +15,6 @@
 
 @property (nonatomic, strong) UIView *detailView;
 
-- (id)initWithColor:(UIColor *)color;
+- (id)initWithEntry:(id)entry;
 
 @end

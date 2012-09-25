@@ -12,6 +12,6 @@
 
 @interface ContainerViewController : UIViewController
 
-- (void)colorSelected:(UIColor *)color;
+- (void)entrySelected:(id)entry;
 
 @end

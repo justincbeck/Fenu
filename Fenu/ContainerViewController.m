@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Justin C. Beck. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "ContainerViewController.h"
 #import "TableViewController.h"
 #import "DetailViewController.h"
@@ -49,7 +51,7 @@
     [self.view addSubview:_tableViewController.view];
 }
 
-- (void)colorSelected:(UIColor *)color
+- (void)entrySelected:(id)entry
 {
     if (_detailNavController != nil)
     {
@@ -57,7 +59,7 @@
         [_detailNavController removeFromParentViewController];
     }
     
-    _detailNavController = [self createControllerWithColor:color];
+    _detailNavController = [self createControllerWithEntry:entry];
     
     [self addChildViewController:_detailNavController];
     [self.view addSubview:_detailNavController.view];
@@ -69,17 +71,19 @@
     [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
 }
 
-- (UINavigationController *)createControllerWithColor:(UIColor *)color
+- (UINavigationController *)createControllerWithEntry:(id)entry
 {
     UIPanGestureRecognizer* gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
     [gestureRecognizer setMinimumNumberOfTouches:1];
     [gestureRecognizer setMaximumNumberOfTouches:1];
     
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleDone target:self action:@selector(showMenu:)];
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithColor:color];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithEntry:entry];
     detailViewController.navigationItem.leftBarButtonItem = menuBarButtonItem;
     
     _detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    _detailNavController.view.layer.borderWidth = 1.0f;
+    _detailNavController.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     [_detailNavController.view addGestureRecognizer:gestureRecognizer];
     
@@ -95,7 +99,7 @@
     [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
         view.frame = frame;
     } completion:^(BOOL finished){
-        
+        // TODO: bounce it!
     }];
 }
 

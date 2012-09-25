@@ -8,10 +8,12 @@
 
 #import "TableViewController.h"
 #import "ContainerViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface TableViewController ()
 {
     UITableViewStyle _tableViewStyle;
+    NSArray *_data;
 }
 @end
 
@@ -22,6 +24,7 @@
     self = [super initWithStyle:style];
     if (self) {
         _tableViewStyle = style;
+        _data = [[NSArray alloc] init];
     }
     return self;
 }
@@ -37,6 +40,8 @@
 
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    [self refresh];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -46,7 +51,20 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSURL *url = [NSURL URLWithString:@"http://breakingmedia.willowtreemobile.com/dealbreaker.json?limit=10"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        [self stopLoading];
+
+        _data = [(NSDictionary *)JSON objectForKey:@"entries"];
+        
+        [[self tableView] reloadData];
+        
+    } failure:nil];
     
+    [operation start];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,17 +84,27 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 6;
+    return _data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     [cell setSelectionStyle:UITableViewCellEditingStyleNone];
     
-    UIColor* color = [self selectColor:[indexPath row]];
-    cell.contentView.backgroundColor = color;
-    
+    if (_data.count > 0)
+    {
+        // TODO: Create a custom cell that can accommodate the image and multiple lines of text
+        
+        NSDictionary *entry = [_data objectAtIndex:[indexPath row]];
+//        NSDate *created = [NSDate dateWithTimeIntervalSince1970:[[entry objectForKey:@"updated"] intValue]];
+        NSString *author = [entry objectForKey:@"author"];
+        NSString *title = [entry objectForKey:@"title"];
+        
+        cell.textLabel.text = title;
+        cell.detailTextLabel.text = author;
+    }
+
     return cell;
 }
 
@@ -123,38 +151,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [((ContainerViewController *)self.parentViewController) colorSelected:[self selectColor:[indexPath row]]];
-}
-
-- (UIColor *)selectColor:(int)index
-{
-    UIColor *color;
-    
-    switch (index) {
-        case 0:
-            color = [UIColor redColor];
-            break;
-        case 1:
-            color = [UIColor orangeColor];
-            break;
-        case 2:
-            color = [UIColor yellowColor];
-            break;
-        case 3:
-            color = [UIColor greenColor];
-            break;
-        case 4:
-            color = [UIColor blueColor];
-            break;
-        case 5:
-            color = [UIColor purpleColor];
-            break;
-            
-        default:
-            break;
-    }
-    
-    return color;
+    [((ContainerViewController *)self.parentViewController) entrySelected:[_data objectAtIndex:[indexPath row]]];
 }
 
 @end
