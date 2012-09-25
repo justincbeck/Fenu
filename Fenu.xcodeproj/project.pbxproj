@@ -7,19 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FAC8B63B8644562B8BD986B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B8FD6DBE574C0690869AAD /* libPods.a */; };
 		98386862160B943F0077C817 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98386861160B943F0077C817 /* DetailViewController.m */; };
-		98386865160B96010077C817 /* FeniAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 98386864160B96010077C817 /* FeniAPI.m */; };
 		9838686C160B99810077C817 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9838686B160B99810077C817 /* QuartzCore.framework */; };
 		9838686E160B9ABC0077C817 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9838686B160B99810077C817 /* QuartzCore.framework */; };
 		98386871160B9B6C0077C817 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98386870160B9B6C0077C817 /* arrow.png */; };
-		983868E6160BEFD80077C817 /* FenuQA-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 983868E5160BEFD80077C817 /* FenuQA-Info.plist */; };
-		983868E8160BF0320077C817 /* libTestStudioExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983868E7160BF0320077C817 /* libTestStudioExtension.a */; };
 		983868ED160BF06F0077C817 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983868EC160BF06F0077C817 /* PullRefreshTableViewController.m */; };
 		98620182160409EA0072CB92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620181160409EA0072CB92 /* UIKit.framework */; };
 		98620184160409EA0072CB92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620183160409EA0072CB92 /* Foundation.framework */; };
 		98620186160409EA0072CB92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620185160409EA0072CB92 /* CoreGraphics.framework */; };
-		9862018C160409EA0072CB92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9862018A160409EA0072CB92 /* InfoPlist.strings */; };
 		9862018E160409EA0072CB92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9862018D160409EA0072CB92 /* main.m */; };
 		98620192160409EA0072CB92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98620191160409EA0072CB92 /* AppDelegate.m */; };
 		98620194160409EA0072CB92 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620193160409EA0072CB92 /* Default.png */; };
@@ -38,13 +33,18 @@
 		986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620193160409EA0072CB92 /* Default.png */; };
 		986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620195160409EA0072CB92 /* Default@2x.png */; };
 		986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620197160409EA0072CB92 /* Default-568h@2x.png */; };
+		98B0716A1611687600A0F964 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9862018A160409EA0072CB92 /* InfoPlist.strings */; };
+		98B0716B1611688300A0F964 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98386870160B9B6C0077C817 /* arrow.png */; };
+		98B0716C1611689A00A0F964 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983868EC160BF06F0077C817 /* PullRefreshTableViewController.m */; };
+		98B0716D1611689A00A0F964 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98386861160B943F0077C817 /* DetailViewController.m */; };
+		98B0717216116C3500A0F964 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B8FD6DBE574C0690869AAD /* libPods.a */; };
+		98B0717316116C3900A0F964 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B8FD6DBE574C0690869AAD /* libPods.a */; };
+		98B0717416116DCB00A0F964 /* libTestStudioExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983868E7160BF0320077C817 /* libTestStudioExtension.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		98386860160B943F0077C817 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		98386861160B943F0077C817 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		98386863160B96010077C817 /* FeniAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeniAPI.h; sourceTree = "<group>"; };
-		98386864160B96010077C817 /* FeniAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeniAPI.m; sourceTree = "<group>"; };
 		9838686B160B99810077C817 /* QuartzCore.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98386870160B9B6C0077C817 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Assets/arrow.png; sourceTree = "<group>"; };
 		983868E5160BEFD80077C817 /* FenuQA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FenuQA-Info.plist"; sourceTree = "<group>"; };
@@ -82,8 +82,7 @@
 				98620182160409EA0072CB92 /* UIKit.framework in Frameworks */,
 				98620184160409EA0072CB92 /* Foundation.framework in Frameworks */,
 				98620186160409EA0072CB92 /* CoreGraphics.framework in Frameworks */,
-				4FAC8B63B8644562B8BD986B /* libPods.a in Frameworks */,
-				983868E8160BF0320077C817 /* libTestStudioExtension.a in Frameworks */,
+				98B0717216116C3500A0F964 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +94,8 @@
 				986F8E871608B61C00AAA7E6 /* UIKit.framework in Frameworks */,
 				986F8E881608B61C00AAA7E6 /* Foundation.framework in Frameworks */,
 				986F8E891608B61C00AAA7E6 /* CoreGraphics.framework in Frameworks */,
+				98B0717316116C3900A0F964 /* libPods.a in Frameworks */,
+				98B0717416116DCB00A0F964 /* libTestStudioExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +145,7 @@
 				F279119F91A3406C9D2A4734 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		9862017E160409EA0072CB92 /* Products */ = {
 			isa = PBXGroup;
@@ -179,8 +181,6 @@
 				986201B5160566050072CB92 /* TableViewController.m */,
 				98386860160B943F0077C817 /* DetailViewController.h */,
 				98386861160B943F0077C817 /* DetailViewController.m */,
-				98386863160B96010077C817 /* FeniAPI.h */,
-				98386864160B96010077C817 /* FeniAPI.m */,
 			);
 			path = Fenu;
 			sourceTree = "<group>";
@@ -271,12 +271,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9862018C160409EA0072CB92 /* InfoPlist.strings in Resources */,
+				98B0716A1611687600A0F964 /* InfoPlist.strings in Resources */,
 				98620194160409EA0072CB92 /* Default.png in Resources */,
 				98620196160409EA0072CB92 /* Default@2x.png in Resources */,
 				98620198160409EA0072CB92 /* Default-568h@2x.png in Resources */,
 				98386871160B9B6C0077C817 /* arrow.png in Resources */,
-				983868E6160BEFD80077C817 /* FenuQA-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +287,7 @@
 				986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */,
 				986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */,
 				986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */,
+				98B0716B1611688300A0F964 /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +320,6 @@
 				986201B3160565C50072CB92 /* ContainerViewController.m in Sources */,
 				986201B6160566050072CB92 /* TableViewController.m in Sources */,
 				98386862160B943F0077C817 /* DetailViewController.m in Sources */,
-				98386865160B96010077C817 /* FeniAPI.m in Sources */,
 				983868ED160BF06F0077C817 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +332,8 @@
 				986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */,
 				986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */,
 				986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */,
+				98B0716D1611689A00A0F964 /* DetailViewController.m in Sources */,
+				98B0716C1611689A00A0F964 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,19 +435,21 @@
 		};
 		986F8E901608B61C00AAA7E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F279119F91A3406C9D2A4734 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fenu/Fenu-Prefix.pch";
-				INFOPLIST_FILE = "FenuQA-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Fenu/FenuQA-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Fenu\"",
+					"\"$(SRCROOT)/Fenu/Third Party/TestStudio\"",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
-					"\"/Users/jbeck/workspace/personal/Fenu/Fenu/libTestStudioExtension.a\"",
+					"\"/Users/jbeck/workspace/personal/Fenu/Fenu/Third Party/TestStudio/libTestStudioExtension.a\"",
 				);
 				PRODUCT_NAME = FenuQA;
 				VALID_ARCHS = armv7;
@@ -456,19 +459,21 @@
 		};
 		986F8E911608B61C00AAA7E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F279119F91A3406C9D2A4734 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fenu/Fenu-Prefix.pch";
-				INFOPLIST_FILE = "FenuQA-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Fenu/FenuQA-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Fenu\"",
+					"\"$(SRCROOT)/Fenu/Third Party/TestStudio\"",
 				);
 				OTHER_LDFLAGS = (
 					"-force_load",
-					"\"/Users/jbeck/workspace/personal/Fenu/Fenu/libTestStudioExtension.a\"",
+					"\"/Users/jbeck/workspace/personal/Fenu/Fenu/Third Party/TestStudio/libTestStudioExtension.a\"",
 				);
 				PRODUCT_NAME = FenuQA;
 				VALID_ARCHS = armv7;

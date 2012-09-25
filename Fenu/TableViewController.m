@@ -51,6 +51,17 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self refresh];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)refresh
+{
     NSURL *url = [NSURL URLWithString:@"http://breakingmedia.willowtreemobile.com/dealbreaker.json?limit=10"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
@@ -63,14 +74,8 @@
         [[self tableView] reloadData];
         
     } failure:nil];
-    
-    [operation start];
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [operation start];
 }
 
 #pragma mark - Table view data source
