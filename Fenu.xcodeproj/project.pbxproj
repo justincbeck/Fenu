@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		98386862160B943F0077C817 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98386861160B943F0077C817 /* DetailViewController.m */; };
 		9838686C160B99810077C817 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9838686B160B99810077C817 /* QuartzCore.framework */; };
 		9838686E160B9ABC0077C817 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9838686B160B99810077C817 /* QuartzCore.framework */; };
 		98386871160B9B6C0077C817 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98386870160B9B6C0077C817 /* arrow.png */; };
@@ -20,12 +19,8 @@
 		98620194160409EA0072CB92 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620193160409EA0072CB92 /* Default.png */; };
 		98620196160409EA0072CB92 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620195160409EA0072CB92 /* Default@2x.png */; };
 		98620198160409EA0072CB92 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620197160409EA0072CB92 /* Default-568h@2x.png */; };
-		986201B3160565C50072CB92 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
-		986201B6160566050072CB92 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
 		986F8E811608B61C00AAA7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9862018D160409EA0072CB92 /* main.m */; };
 		986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98620191160409EA0072CB92 /* AppDelegate.m */; };
-		986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B2160565C50072CB92 /* ContainerViewController.m */; };
-		986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 986201B5160566050072CB92 /* TableViewController.m */; };
 		986F8E871608B61C00AAA7E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620181160409EA0072CB92 /* UIKit.framework */; };
 		986F8E881608B61C00AAA7E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620183160409EA0072CB92 /* Foundation.framework */; };
 		986F8E891608B61C00AAA7E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98620185160409EA0072CB92 /* CoreGraphics.framework */; };
@@ -36,15 +31,16 @@
 		98B0716A1611687600A0F964 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9862018A160409EA0072CB92 /* InfoPlist.strings */; };
 		98B0716B1611688300A0F964 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98386870160B9B6C0077C817 /* arrow.png */; };
 		98B0716C1611689A00A0F964 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983868EC160BF06F0077C817 /* PullRefreshTableViewController.m */; };
-		98B0716D1611689A00A0F964 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98386861160B943F0077C817 /* DetailViewController.m */; };
 		98B0717216116C3500A0F964 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B8FD6DBE574C0690869AAD /* libPods.a */; };
 		98B0717316116C3900A0F964 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B8FD6DBE574C0690869AAD /* libPods.a */; };
 		98B0717416116DCB00A0F964 /* libTestStudioExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 983868E7160BF0320077C817 /* libTestStudioExtension.a */; };
+		98DD0C04161269EF002E7F6D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C03161269EF002E7F6D /* TableViewController.m */; };
+		98DD0C07161269FE002E7F6D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C06161269FE002E7F6D /* DetailViewController.m */; };
+		98DD0C0A16126A08002E7F6D /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0916126A08002E7F6D /* ContainerViewController.m */; };
+		98DD0C0D16126A3D002E7F6D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0C16126A3D002E7F6D /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		98386860160B943F0077C817 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		98386861160B943F0077C817 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9838686B160B99810077C817 /* QuartzCore.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98386870160B9B6C0077C817 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Assets/arrow.png; sourceTree = "<group>"; };
 		983868E5160BEFD80077C817 /* FenuQA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FenuQA-Info.plist"; sourceTree = "<group>"; };
@@ -64,11 +60,15 @@
 		98620193160409EA0072CB92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		98620195160409EA0072CB92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		98620197160409EA0072CB92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		986201B1160565C50072CB92 /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
-		986201B2160565C50072CB92 /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
-		986201B4160566050072CB92 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		986201B5160566050072CB92 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98DD0C02161269EF002E7F6D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = TableView/TableViewController.h; sourceTree = "<group>"; };
+		98DD0C03161269EF002E7F6D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = TableView/TableViewController.m; sourceTree = "<group>"; };
+		98DD0C05161269FE002E7F6D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = DetailView/DetailViewController.h; sourceTree = "<group>"; };
+		98DD0C06161269FE002E7F6D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = DetailView/DetailViewController.m; sourceTree = "<group>"; };
+		98DD0C0816126A08002E7F6D /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerViewController.h; path = ContainerView/ContainerViewController.h; sourceTree = "<group>"; };
+		98DD0C0916126A08002E7F6D /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerViewController.m; path = ContainerView/ContainerViewController.m; sourceTree = "<group>"; };
+		98DD0C0B16126A3D002E7F6D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCell.h; path = TableView/TableViewCell.h; sourceTree = "<group>"; };
+		98DD0C0C16126A3D002E7F6D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCell.m; path = TableView/TableViewCell.m; sourceTree = "<group>"; };
 		C7B8FD6DBE574C0690869AAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F279119F91A3406C9D2A4734 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -171,16 +171,13 @@
 		98620187160409EA0072CB92 /* Fenu */ = {
 			isa = PBXGroup;
 			children = (
+				98DD0C01161269DB002E7F6D /* TableViewController */,
+				98DD0C00161269D3002E7F6D /* DetailViewController */,
+				98DD0BFF161269C7002E7F6D /* ContainerViewController */,
 				98386866160B97410077C817 /* Third Party */,
 				98620190160409EA0072CB92 /* AppDelegate.h */,
 				98620191160409EA0072CB92 /* AppDelegate.m */,
 				98620188160409EA0072CB92 /* Supporting Files */,
-				986201B1160565C50072CB92 /* ContainerViewController.h */,
-				986201B2160565C50072CB92 /* ContainerViewController.m */,
-				986201B4160566050072CB92 /* TableViewController.h */,
-				986201B5160566050072CB92 /* TableViewController.m */,
-				98386860160B943F0077C817 /* DetailViewController.h */,
-				98386861160B943F0077C817 /* DetailViewController.m */,
 			);
 			path = Fenu;
 			sourceTree = "<group>";
@@ -201,6 +198,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		98DD0BFF161269C7002E7F6D /* ContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				98DD0C0816126A08002E7F6D /* ContainerViewController.h */,
+				98DD0C0916126A08002E7F6D /* ContainerViewController.m */,
+			);
+			name = ContainerViewController;
+			sourceTree = "<group>";
+		};
+		98DD0C00161269D3002E7F6D /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				98DD0C05161269FE002E7F6D /* DetailViewController.h */,
+				98DD0C06161269FE002E7F6D /* DetailViewController.m */,
+			);
+			name = DetailViewController;
+			sourceTree = "<group>";
+		};
+		98DD0C01161269DB002E7F6D /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				98DD0C02161269EF002E7F6D /* TableViewController.h */,
+				98DD0C03161269EF002E7F6D /* TableViewController.m */,
+				98DD0C0B16126A3D002E7F6D /* TableViewCell.h */,
+				98DD0C0C16126A3D002E7F6D /* TableViewCell.m */,
+			);
+			name = TableViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,6 +238,7 @@
 				9862017A160409EA0072CB92 /* Frameworks */,
 				9862017B160409EA0072CB92 /* Resources */,
 				FB5284533BF845568036B304 /* Copy Pods Resources */,
+				980924AD161223F900BE554C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -294,6 +321,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		980924AD161223F900BE554C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "env > /Users/jbeck/Desktop/foo.txt";
+		};
 		FB5284533BF845568036B304 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,10 +357,11 @@
 			files = (
 				9862018E160409EA0072CB92 /* main.m in Sources */,
 				98620192160409EA0072CB92 /* AppDelegate.m in Sources */,
-				986201B3160565C50072CB92 /* ContainerViewController.m in Sources */,
-				986201B6160566050072CB92 /* TableViewController.m in Sources */,
-				98386862160B943F0077C817 /* DetailViewController.m in Sources */,
 				983868ED160BF06F0077C817 /* PullRefreshTableViewController.m in Sources */,
+				98DD0C04161269EF002E7F6D /* TableViewController.m in Sources */,
+				98DD0C07161269FE002E7F6D /* DetailViewController.m in Sources */,
+				98DD0C0A16126A08002E7F6D /* ContainerViewController.m in Sources */,
+				98DD0C0D16126A3D002E7F6D /* TableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +371,6 @@
 			files = (
 				986F8E811608B61C00AAA7E6 /* main.m in Sources */,
 				986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */,
-				986F8E831608B61C00AAA7E6 /* ContainerViewController.m in Sources */,
-				986F8E841608B61C00AAA7E6 /* TableViewController.m in Sources */,
-				98B0716D1611689A00A0F964 /* DetailViewController.m in Sources */,
 				98B0716C1611689A00A0F964 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
