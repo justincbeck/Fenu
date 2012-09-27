@@ -102,7 +102,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TableViewCell *cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-    [cell setSelectionStyle:UITableViewCellEditingStyleNone];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     
     if (_data.count > 0)
     {

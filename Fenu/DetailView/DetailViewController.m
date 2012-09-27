@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "DetailView.h"
+
 #import "ContainerViewController.h"
 
 @interface DetailViewController ()
@@ -22,7 +24,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _detailView = [[UIView alloc] initWithFrame:CGRectZero];
+        _detailView = [[DetailView alloc] initWithFrame:CGRectZero];
     }
     return self;
 }
@@ -31,8 +33,20 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _detailView = [[UIView alloc] initWithFrame:CGRectZero];
+        _detailView = [[DetailView alloc] initWithFrame:CGRectZero];
         _entry = entry;
+
+        _detailView.created.text = ((NSDate *)[NSDate dateWithTimeIntervalSince1970:[[entry objectForKey:@"updated"] intValue]]).description;
+        [_detailView addSubview:_detailView.created];
+        
+        _detailView.title.text = [_entry objectForKey:@"title"];
+        [_detailView addSubview:_detailView.title];
+        
+        _detailView.author.text = [_entry objectForKey:@"author"];
+        [_detailView addSubview:_detailView.author];
+
+        [_detailView.content loadHTMLString:[_entry objectForKey:@"content"] baseURL:[[NSBundle mainBundle] resourceURL]];
+        [_detailView addSubview:_detailView.content];
     }
     return self;
 }
@@ -49,10 +63,11 @@
     
     _detailView.backgroundColor = [UIColor whiteColor];
     
-    // TODO: Get rid of this: TEST (maybe come up with a custom view for this?)
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 130.0f, 15.0f)];
-    label.text = [_entry objectForKey:@"author"];
-    [_detailView addSubview:label];
+    _detailView.created.frame = CGRectMake(10.0f, 10.0f, 300.0f, 15.0f);
+    _detailView.title.frame = CGRectMake(10.0f, 30.0f, 300.0f, 15.0f);
+    _detailView.author.frame = CGRectMake(10.0f, 50.0f, 300.0f, 15.0f);
+    _detailView.content.frame = CGRectMake(10.0f, 70.0f, 300.0f, 611.0f);
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		982FE26D16146E83005C6CD5 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 982FE26C16146E83005C6CD5 /* DetailView.m */; };
 		9838686C160B99810077C817 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9838686B160B99810077C817 /* QuartzCore.framework */; };
 		9838686E160B9ABC0077C817 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9838686B160B99810077C817 /* QuartzCore.framework */; };
 		98386871160B9B6C0077C817 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98386870160B9B6C0077C817 /* arrow.png */; };
@@ -42,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		982FE26B16146E83005C6CD5 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailView.h; path = DetailView/DetailView.h; sourceTree = "<group>"; };
+		982FE26C16146E83005C6CD5 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailView.m; path = DetailView/DetailView.m; sourceTree = "<group>"; };
 		9838686B160B99810077C817 /* QuartzCore.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98386870160B9B6C0077C817 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = Assets/arrow.png; sourceTree = "<group>"; };
 		983868E5160BEFD80077C817 /* FenuQA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FenuQA-Info.plist"; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 			children = (
 				98DD0C05161269FE002E7F6D /* DetailViewController.h */,
 				98DD0C06161269FE002E7F6D /* DetailViewController.m */,
+				982FE26B16146E83005C6CD5 /* DetailView.h */,
+				982FE26C16146E83005C6CD5 /* DetailView.m */,
 			);
 			name = DetailViewController;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				98DD0C07161269FE002E7F6D /* DetailViewController.m in Sources */,
 				98DD0C0A16126A08002E7F6D /* ContainerViewController.m in Sources */,
 				98DD0C0D16126A3D002E7F6D /* TableViewCell.m in Sources */,
+				982FE26D16146E83005C6CD5 /* DetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

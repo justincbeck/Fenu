@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "DetailView.h"
+
 @interface DetailViewController : UIViewController
 {
-    UIView *_detailView;
+    DetailView *_detailView;
 }
 
-@property (nonatomic, strong) UIView *detailView;
+@property (nonatomic, strong) DetailView *detailView;
 
 - (id)initWithEntry:(id)entry;
 
