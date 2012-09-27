@@ -38,6 +38,7 @@
 		98DD0C07161269FE002E7F6D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C06161269FE002E7F6D /* DetailViewController.m */; };
 		98DD0C0A16126A08002E7F6D /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0916126A08002E7F6D /* ContainerViewController.m */; };
 		98DD0C0D16126A3D002E7F6D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0C16126A3D002E7F6D /* TableViewCell.m */; };
+		98DD0C771613FC68002E7F6D /* stock-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DD0C761613FC68002E7F6D /* stock-image.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		98DD0C0916126A08002E7F6D /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerViewController.m; path = ContainerView/ContainerViewController.m; sourceTree = "<group>"; };
 		98DD0C0B16126A3D002E7F6D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCell.h; path = TableView/TableViewCell.h; sourceTree = "<group>"; };
 		98DD0C0C16126A3D002E7F6D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCell.m; path = TableView/TableViewCell.m; sourceTree = "<group>"; };
+		98DD0C761613FC68002E7F6D /* stock-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stock-image.png"; path = "Assets/stock-image.png"; sourceTree = "<group>"; };
 		C7B8FD6DBE574C0690869AAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F279119F91A3406C9D2A4734 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 		9838686F160B9B5C0077C817 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				98DD0C761613FC68002E7F6D /* stock-image.png */,
 				98386870160B9B6C0077C817 /* arrow.png */,
 			);
 			name = Assets;
@@ -303,6 +306,7 @@
 				98620196160409EA0072CB92 /* Default@2x.png in Resources */,
 				98620198160409EA0072CB92 /* Default-568h@2x.png in Resources */,
 				98386871160B9B6C0077C817 /* arrow.png in Resources */,
+				98DD0C771613FC68002E7F6D /* stock-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

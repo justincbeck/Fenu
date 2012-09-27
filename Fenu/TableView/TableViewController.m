@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Justin C. Beck. All rights reserved.
 //
 
+#import "TableViewCell.h"
 #import "TableViewController.h"
 #import "ContainerViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface TableViewController ()
 {
@@ -78,6 +80,11 @@
     [operation start];
 }
 
+- (UIImage *)cropImage:(UIImage *)image
+{
+    return nil;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -94,22 +101,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    TableViewCell *cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     [cell setSelectionStyle:UITableViewCellEditingStyleNone];
     
     if (_data.count > 0)
     {
-        // TODO: Create a custom cell that can accommodate the image and multiple lines of text
-        
         NSDictionary *entry = [_data objectAtIndex:[indexPath row]];
-//        NSDate *created = [NSDate dateWithTimeIntervalSince1970:[[entry objectForKey:@"updated"] intValue]];
+        
+        NSString *imageURL = [entry objectForKey:@"image"];
         NSString *author = [entry objectForKey:@"author"];
         NSString *title = [entry objectForKey:@"title"];
+        NSDate *created = [NSDate dateWithTimeIntervalSince1970:[[entry objectForKey:@"updated"] intValue]];
         
-        cell.textLabel.text = title;
-        cell.detailTextLabel.text = author;
-    }
+        NSError *error = nil;
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageURL]];
+        [request setTimeoutInterval:25.0];
+        
+        NSData *imageData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        UIImage *image = [UIImage imageWithData:imageData];
 
+        if (image == nil)
+        {
+            image = [UIImage imageNamed:@"stock-image"];
+        }
+        
+        // TODO: Not so sure about this scaling and the CGRect size being used here - JCB
+        struct CGImage *cropped = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(image.size.width/2 - 65.0f, 0.0f, 130.0f, 130.0f));
+        
+        cell.author.text = author;
+        cell.textLabel.text = title;
+        cell.detailTextLabel.text = created.description;
+        cell.imageView.image = [UIImage imageWithCGImage:cropped scale:2 orientation:image.imageOrientation];
+        
+        CGImageRelease(cropped);
+    }
+    
     return cell;
 }
 
@@ -157,6 +183,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [((ContainerViewController *)self.parentViewController) entrySelected:[_data objectAtIndex:[indexPath row]]];
+}
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 85.0f;
 }
 
 @end

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewCell : UITableViewCell
+{
+    UILabel *_author;
+}
+
+@property (nonatomic, retain) UILabel *author;
 
 @end
