@@ -9,6 +9,9 @@
 #import "TableViewCell.h"
 #import "TableViewController.h"
 #import "ContainerViewController.h"
+
+#import "UIImage+Helper.h"
+
 #import <AFNetworking/AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -125,15 +128,12 @@
             image = [UIImage imageNamed:@"stock-image"];
         }
         
-        // TODO: Not so sure about this scaling and the CGRect size being used here - JCB
-        struct CGImage *cropped = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(image.size.width/2 - 65.0f, 0.0f, 130.0f, 130.0f));
+        UIImage *thumbnail= [image thumbnail];
         
         cell.author.text = author;
         cell.textLabel.text = title;
         cell.detailTextLabel.text = created.description;
-        cell.imageView.image = [UIImage imageWithCGImage:cropped scale:2 orientation:image.imageOrientation];
-        
-        CGImageRelease(cropped);
+        cell.imageView.image = thumbnail;
     }
     
     return cell;
