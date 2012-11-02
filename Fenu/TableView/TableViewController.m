@@ -8,7 +8,7 @@
 
 #import "TableViewCell.h"
 #import "TableViewController.h"
-#import "ContainerViewController.h"
+#import "UIViewController+StackViewController.h"
 
 #import "UIImage+Helper.h"
 
@@ -128,7 +128,7 @@
             image = [UIImage imageNamed:@"stock-image"];
         }
         
-        UIImage *thumbnail= [image thumbnail];
+        UIImage *thumbnail = [image thumbnail];
         
         cell.author.text = author;
         cell.textLabel.text = title;
@@ -182,7 +182,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [((ContainerViewController *)self.parentViewController) entrySelected:[_data objectAtIndex:[indexPath row]]];
+    [self.containerViewController entrySelected:[_data objectAtIndex:[indexPath row]]];
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

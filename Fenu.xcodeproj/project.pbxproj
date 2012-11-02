@@ -31,6 +31,12 @@
 		986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620193160409EA0072CB92 /* Default.png */; };
 		986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620195160409EA0072CB92 /* Default@2x.png */; };
 		986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620197160409EA0072CB92 /* Default-568h@2x.png */; };
+		98AAA2CA161B5DCB0056EFCD /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C03161269EF002E7F6D /* TableViewController.m */; };
+		98AAA2CB161B5DCB0056EFCD /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0C16126A3D002E7F6D /* TableViewCell.m */; };
+		98AAA2CC161B5DCB0056EFCD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C06161269FE002E7F6D /* DetailViewController.m */; };
+		98AAA2CD161B5DCB0056EFCD /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 982FE26C16146E83005C6CD5 /* DetailView.m */; };
+		98AAA2CE161B5DCB0056EFCD /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0916126A08002E7F6D /* ContainerViewController.m */; };
+		98AAA2D0161B5DFB0056EFCD /* stock-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DD0C761613FC68002E7F6D /* stock-image.png */; };
 		98B0716A1611687600A0F964 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9862018A160409EA0072CB92 /* InfoPlist.strings */; };
 		98B0716B1611688300A0F964 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 98386870160B9B6C0077C817 /* arrow.png */; };
 		98B0716C1611689A00A0F964 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983868EC160BF06F0077C817 /* PullRefreshTableViewController.m */; };
@@ -42,6 +48,7 @@
 		98DD0C0A16126A08002E7F6D /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0916126A08002E7F6D /* ContainerViewController.m */; };
 		98DD0C0D16126A3D002E7F6D /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0C16126A3D002E7F6D /* TableViewCell.m */; };
 		98DD0C771613FC68002E7F6D /* stock-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DD0C761613FC68002E7F6D /* stock-image.png */; };
+		98DF5E7816430530001E8CE3 /* UIViewController+StackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DF5E7716430530001E8CE3 /* UIViewController+StackViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +76,7 @@
 		98620195160409EA0072CB92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		98620197160409EA0072CB92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		988D146E162378D0006215F7 /* Fenu copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fenu copy-Info.plist"; path = "/Users/jbeck/workspace/personal/Fenu/Fenu copy-Info.plist"; sourceTree = "<absolute>"; };
 		98DD0C02161269EF002E7F6D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = TableView/TableViewController.h; sourceTree = "<group>"; };
 		98DD0C03161269EF002E7F6D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = TableView/TableViewController.m; sourceTree = "<group>"; };
 		98DD0C05161269FE002E7F6D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = DetailView/DetailViewController.h; sourceTree = "<group>"; };
@@ -78,6 +86,8 @@
 		98DD0C0B16126A3D002E7F6D /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCell.h; path = TableView/TableViewCell.h; sourceTree = "<group>"; };
 		98DD0C0C16126A3D002E7F6D /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCell.m; path = TableView/TableViewCell.m; sourceTree = "<group>"; };
 		98DD0C761613FC68002E7F6D /* stock-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stock-image.png"; path = "Assets/stock-image.png"; sourceTree = "<group>"; };
+		98DF5E7616430530001E8CE3 /* UIViewController+StackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+StackViewController.h"; path = "ContainerView/UIViewController+StackViewController.h"; sourceTree = "<group>"; };
+		98DF5E7716430530001E8CE3 /* UIViewController+StackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+StackViewController.m"; path = "ContainerView/UIViewController+StackViewController.m"; sourceTree = "<group>"; };
 		C7B8FD6DBE574C0690869AAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F279119F91A3406C9D2A4734 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -162,6 +172,7 @@
 				98620180160409EA0072CB92 /* Frameworks */,
 				9862017E160409EA0072CB92 /* Products */,
 				F279119F91A3406C9D2A4734 /* Pods.xcconfig */,
+				988D146E162378D0006215F7 /* Fenu copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -223,6 +234,8 @@
 			children = (
 				98DD0C0816126A08002E7F6D /* ContainerViewController.h */,
 				98DD0C0916126A08002E7F6D /* ContainerViewController.m */,
+				98DF5E7616430530001E8CE3 /* UIViewController+StackViewController.h */,
+				98DF5E7716430530001E8CE3 /* UIViewController+StackViewController.m */,
 			);
 			name = ContainerViewController;
 			sourceTree = "<group>";
@@ -333,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98AAA2D0161B5DFB0056EFCD /* stock-image.png in Resources */,
 				986F8E8B1608B61C00AAA7E6 /* InfoPlist.strings in Resources */,
 				986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */,
 				986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */,
@@ -387,6 +401,7 @@
 				98DD0C0D16126A3D002E7F6D /* TableViewCell.m in Sources */,
 				982FE26D16146E83005C6CD5 /* DetailView.m in Sources */,
 				9840EE1E16153CC200D91196 /* UIImage+Helper.m in Sources */,
+				98DF5E7816430530001E8CE3 /* UIViewController+StackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +409,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98AAA2CA161B5DCB0056EFCD /* TableViewController.m in Sources */,
+				98AAA2CB161B5DCB0056EFCD /* TableViewCell.m in Sources */,
+				98AAA2CC161B5DCB0056EFCD /* DetailViewController.m in Sources */,
+				98AAA2CD161B5DCB0056EFCD /* DetailView.m in Sources */,
+				98AAA2CE161B5DCB0056EFCD /* ContainerViewController.m in Sources */,
 				986F8E811608B61C00AAA7E6 /* main.m in Sources */,
 				986F8E821608B61C00AAA7E6 /* AppDelegate.m in Sources */,
 				98B0716C1611689A00A0F964 /* PullRefreshTableViewController.m in Sources */,

@@ -9,8 +9,6 @@
 #import "DetailViewController.h"
 #import "DetailView.h"
 
-#import "ContainerViewController.h"
-
 @interface DetailViewController ()
 {
     NSDictionary *_entry;

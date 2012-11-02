@@ -11,12 +11,20 @@
 #import "ContainerViewController.h"
 #import "TableViewController.h"
 #import "DetailViewController.h"
+#import "UIViewController+StackViewController.h"
 
 @interface ContainerViewController ()
 {
     TableViewController *_tableViewController;
     UINavigationController *_detailNavController;
+    UIView *_alphaView;
 }
+
+@end
+
+@interface UIViewController ()
+
+@property (nonatomic, readwrite) ContainerViewController *containerViewController;
 
 @end
 
@@ -35,20 +43,25 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     [self addChildViewController:_tableViewController];
+    [_tableViewController setContainerViewController:self];
     
     CGRect frame = _tableViewController.view.frame;
     frame.origin.y -= [[UIApplication sharedApplication] statusBarFrame].size.height;
     _tableViewController.view.frame = frame;
     
     [self.view addSubview:_tableViewController.view];
+    
+    _alphaView = [[UIView alloc] initWithFrame:frame];
+    _alphaView.alpha = 0.0f;
+    _alphaView.backgroundColor = [UIColor blackColor];
 }
 
 - (void)entrySelected:(id)entry
@@ -68,7 +81,11 @@
     frame.origin.x = [self getMaxX];
     _detailNavController.view.frame = frame;
     
+    [_alphaView removeFromSuperview];
+    [self.view insertSubview:_alphaView aboveSubview:_tableViewController.view];
+    
     [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+    [self snapView:_tableViewController.view toCoordinates:CGPointMake(-96.0f, 0.0f)];
 }
 
 - (UINavigationController *)createControllerWithEntry:(id)entry
@@ -95,9 +112,11 @@
     CGRect frame = view.frame;
     frame.origin.x = point.x;
     float duration = (ABS(point.x - view.frame.origin.x) / [self getMaxX]) * 0.3f;
+    float alpha = point.x / [self getMaxX];
     
     [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
         view.frame = frame;
+        _alphaView.alpha = alpha;
     } completion:^(BOOL finished){
         // TODO: bounce it!
     }];
@@ -108,10 +127,12 @@
     if (_detailNavController.view.frame.origin.x == [self getMaxX])
     {
         [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+        [self snapView:_tableViewController.view toCoordinates:CGPointMake(-96.0f, 0.0f)];
     }
     else
     {
         [self snapView:_detailNavController.view toCoordinates:CGPointMake([self getMaxX], 0.0f)];
+        [self snapView:_tableViewController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
     }
 }
 
@@ -119,26 +140,35 @@
 {
     UIView *view = [gesture view];
     CGPoint point = [gesture translationInView:view.superview];
-    CGRect frame = view.frame;
+    CGRect detailViewFrame = view.frame;
+    CGRect tableViewFrame = _tableViewController.view.frame;
     
     if ([gesture state] == UIGestureRecognizerStateChanged)
     {
-        frame.origin.x = frame.origin.x + point.x;
-        if (frame.origin.x >= 0.0f && frame.origin.x <= [self getMaxX])
+        detailViewFrame.origin.x = detailViewFrame.origin.x + point.x;
+        tableViewFrame.origin.x = (detailViewFrame.origin.x / [self getMaxX] * 96.0f) - 96.0f;
+        
+        if (detailViewFrame.origin.x >= 0.0f && detailViewFrame.origin.x <= [self getMaxX])
         {
-            [view setFrame:frame];
+            [view setFrame:detailViewFrame];
+            [_tableViewController.view setFrame:tableViewFrame];
+            
             [gesture setTranslation:CGPointZero inView:view.superview];
+            
+            _alphaView.alpha = 1 - (detailViewFrame.origin.x / [self getMaxX]);
         }
     }
     else if ([gesture state] == UIGestureRecognizerStateEnded)
     {
-        if (frame.origin.x < [self getMaxX]/ 2.0f)
+        if (detailViewFrame.origin.x < [self getMaxX]/ 2.0f)
         {
             [self snapView:view toCoordinates:CGPointMake(0.0f, 0.0f)];
+            [self snapView:_tableViewController.view toCoordinates:CGPointMake(-96.0f, 0.0f)];
         }
         else
         {
             [self snapView:view toCoordinates:CGPointMake([self getMaxX], 0.0f)];
+            [self snapView:_tableViewController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
         }
     }
 }
