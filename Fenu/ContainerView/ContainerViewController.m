@@ -13,7 +13,6 @@
 #import "DetailViewController.h"
 #import "UIViewController+StackViewController.h"
 
-#define kDetailMaxX _detailNavController.view.frame.size.width - 63.0f
 #define kMenuMinX -96.0f
 
 typedef enum {
@@ -25,7 +24,7 @@ typedef enum {
 {
     TableViewController *_tableViewController;
     UINavigationController *_detailNavController;
-    UIView *_alphaView;
+    UIViewController *_shadowViewController;
 }
 
 @end
@@ -67,9 +66,13 @@ typedef enum {
     
     [self.view addSubview:_tableViewController.view];
     
-    _alphaView = [[UIView alloc] initWithFrame:frame];
-    _alphaView.alpha = 0.0f;
-    _alphaView.backgroundColor = [UIColor blackColor];
+    _shadowViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
+    _shadowViewController.view.alpha = 0.0f;
+    _shadowViewController.view.backgroundColor = [UIColor blackColor];
+    _shadowViewController.view.frame = _tableViewController.view.frame;
+    
+    [self addChildViewController:_shadowViewController];
+    [self.view insertSubview:_shadowViewController.view aboveSubview:_tableViewController.view];
 }
 
 - (void)entrySelected:(id)entry
@@ -81,6 +84,11 @@ typedef enum {
     }
     
     _detailNavController = [self createControllerWithEntry:entry];
+    _detailNavController.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    _detailNavController.view.layer.shadowOpacity = 1.0f;
+    _detailNavController.view.layer.shadowRadius = 5.0f;
+    _detailNavController.view.layer.shadowOffset = CGSizeMake(0.0f, 3.0f);
+    _detailNavController.view.clipsToBounds = NO;
     
     [self addChildViewController:_detailNavController];
     [self.view addSubview:_detailNavController.view];
@@ -88,9 +96,6 @@ typedef enum {
     CGRect frame = _detailNavController.view.frame;
     frame.origin.x = [self getMaxX];
     _detailNavController.view.frame = frame;
-    
-    [_alphaView removeFromSuperview];
-    [self.view insertSubview:_alphaView aboveSubview:_tableViewController.view];
     
     [self snapViewsOpen:NO];
 }
@@ -121,7 +126,7 @@ typedef enum {
     
     if (open)
     {
-        detailFrame.origin.x = kDetailMaxX;
+        detailFrame.origin.x = [self getMaxX];
         tableFrame.origin.x = 0.0f;
     }
     else
@@ -130,15 +135,15 @@ typedef enum {
         tableFrame.origin.x = kMenuMinX;
     }
     
-    float duration = (ABS(detailFrame.origin.x - _detailNavController.view.frame.origin.x) / kDetailMaxX) * 0.3f;
-    float alpha = detailFrame.origin.x / kDetailMaxX;
+    float duration = (ABS(detailFrame.origin.x - _detailNavController.view.frame.origin.x) / [self getMaxX]) * 0.3f;
+    float alpha = 1 - (detailFrame.origin.x / [self getMaxX]);
     
     [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
         _detailNavController.view.frame = detailFrame;
         _tableViewController.view.frame = tableFrame;
-        _alphaView.alpha = alpha;
+        _shadowViewController.view.alpha = alpha;
     } completion:^(BOOL finished){
-        // TODO: bounce it!
+        // Nothing to see here!!
     }];
 }
 
@@ -173,7 +178,7 @@ typedef enum {
             
             [gesture setTranslation:CGPointZero inView:view.superview];
             
-            _alphaView.alpha = 1 - (detailViewFrame.origin.x / [self getMaxX]);
+            _shadowViewController.view.alpha = 1 - (detailViewFrame.origin.x / [self getMaxX]);
         }
     }
     else if ([gesture state] == UIGestureRecognizerStateEnded)

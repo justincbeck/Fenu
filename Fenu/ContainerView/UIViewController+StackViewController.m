@@ -13,7 +13,7 @@
 
 @implementation UIViewController (StackViewController)
 
-static NSString * const ContainerViewControllerKey = @"ContainerViewControllerKey";
+static const char * ContainerViewControllerKey = "ContainerViewControllerKey";
 
 - (ContainerViewController *)containerViewController
 {

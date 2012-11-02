@@ -55,7 +55,7 @@
     self.view.frame = self.view.superview.frame;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
     
@@ -66,6 +66,9 @@
     _detailView.author.frame = CGRectMake(10.0f, 50.0f, 300.0f, 15.0f);
     _detailView.content.frame = CGRectMake(10.0f, 70.0f, 300.0f, 611.0f);
     
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(-1.0f, 0.0f, 1.0f, self.navigationController.view.frame.size.height)];
+    lineView.backgroundColor = [UIColor orangeColor];
+    [self.navigationController.view addSubview:lineView];
 }
 
 - (void)didReceiveMemoryWarning
