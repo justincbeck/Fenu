@@ -76,7 +76,6 @@
 		98620195160409EA0072CB92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		98620197160409EA0072CB92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		988D146E162378D0006215F7 /* Fenu copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fenu copy-Info.plist"; path = "/Users/jbeck/workspace/personal/Fenu/Fenu copy-Info.plist"; sourceTree = "<absolute>"; };
 		98DD0C02161269EF002E7F6D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = TableView/TableViewController.h; sourceTree = "<group>"; };
 		98DD0C03161269EF002E7F6D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = TableView/TableViewController.m; sourceTree = "<group>"; };
 		98DD0C05161269FE002E7F6D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = DetailView/DetailViewController.h; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 				98620180160409EA0072CB92 /* Frameworks */,
 				9862017E160409EA0072CB92 /* Products */,
 				F279119F91A3406C9D2A4734 /* Pods.xcconfig */,
-				988D146E162378D0006215F7 /* Fenu copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;

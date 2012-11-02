@@ -13,6 +13,14 @@
 #import "DetailViewController.h"
 #import "UIViewController+StackViewController.h"
 
+#define kDetailMaxX _detailNavController.view.frame.size.width - 63.0f
+#define kMenuMinX -96.0f
+
+typedef enum {
+    kOpen,
+    kClosed
+} Position;
+
 @interface ContainerViewController ()
 {
     TableViewController *_tableViewController;
@@ -84,8 +92,7 @@
     [_alphaView removeFromSuperview];
     [self.view insertSubview:_alphaView aboveSubview:_tableViewController.view];
     
-    [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
-    [self snapView:_tableViewController.view toCoordinates:CGPointMake(-96.0f, 0.0f)];
+    [self snapViewsOpen:NO];
 }
 
 - (UINavigationController *)createControllerWithEntry:(id)entry
@@ -107,15 +114,28 @@
     return _detailNavController;
 }
 
-- (void)snapView:(UIView *)view toCoordinates:(CGPoint)point
+- (void)snapViewsOpen:(Boolean)open
 {
-    CGRect frame = view.frame;
-    frame.origin.x = point.x;
-    float duration = (ABS(point.x - view.frame.origin.x) / [self getMaxX]) * 0.3f;
-    float alpha = point.x / [self getMaxX];
+    CGRect detailFrame = _detailNavController.view.frame;
+    CGRect tableFrame = _tableViewController.view.frame;
+    
+    if (open)
+    {
+        detailFrame.origin.x = kDetailMaxX;
+        tableFrame.origin.x = 0.0f;
+    }
+    else
+    {
+        detailFrame.origin.x = 0.0f;
+        tableFrame.origin.x = kMenuMinX;
+    }
+    
+    float duration = (ABS(detailFrame.origin.x - _detailNavController.view.frame.origin.x) / kDetailMaxX) * 0.3f;
+    float alpha = detailFrame.origin.x / kDetailMaxX;
     
     [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
-        view.frame = frame;
+        _detailNavController.view.frame = detailFrame;
+        _tableViewController.view.frame = tableFrame;
         _alphaView.alpha = alpha;
     } completion:^(BOOL finished){
         // TODO: bounce it!
@@ -126,13 +146,11 @@
 {
     if (_detailNavController.view.frame.origin.x == [self getMaxX])
     {
-        [self snapView:_detailNavController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
-        [self snapView:_tableViewController.view toCoordinates:CGPointMake(-96.0f, 0.0f)];
+        [self snapViewsOpen:NO];
     }
     else
     {
-        [self snapView:_detailNavController.view toCoordinates:CGPointMake([self getMaxX], 0.0f)];
-        [self snapView:_tableViewController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+        [self snapViewsOpen:YES];
     }
 }
 
@@ -162,13 +180,11 @@
     {
         if (detailViewFrame.origin.x < [self getMaxX]/ 2.0f)
         {
-            [self snapView:view toCoordinates:CGPointMake(0.0f, 0.0f)];
-            [self snapView:_tableViewController.view toCoordinates:CGPointMake(-96.0f, 0.0f)];
+            [self snapViewsOpen:NO];
         }
         else
         {
-            [self snapView:view toCoordinates:CGPointMake([self getMaxX], 0.0f)];
-            [self snapView:_tableViewController.view toCoordinates:CGPointMake(0.0f, 0.0f)];
+            [self snapViewsOpen:YES];
         }
     }
 }
