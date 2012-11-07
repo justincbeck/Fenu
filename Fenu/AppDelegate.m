@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ContainerViewController.h"
+#import <DCIntrospect/DCIntrospect.h>
 
 @implementation AppDelegate
 
@@ -17,6 +18,9 @@
     ContainerViewController *viewController = [[ContainerViewController alloc] initWithNibName:nil bundle:nil];
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
+    
+//    [[DCIntrospect sharedIntrospector] start];
+    
     return YES;
 }
 

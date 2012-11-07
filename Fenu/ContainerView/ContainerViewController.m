@@ -50,7 +50,7 @@ typedef enum {
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -97,7 +97,7 @@ typedef enum {
     frame.origin.x = [self getMaxX];
     _detailNavController.view.frame = frame;
     
-    [self snapViewsOpen:NO];
+    [self snapViews:NO];
 }
 
 - (UINavigationController *)createControllerWithEntry:(id)entry
@@ -119,7 +119,7 @@ typedef enum {
     return _detailNavController;
 }
 
-- (void)snapViewsOpen:(Boolean)open
+- (void)snapViews:(Boolean)open
 {
     CGRect detailFrame = _detailNavController.view.frame;
     CGRect tableFrame = _tableViewController.view.frame;
@@ -135,12 +135,13 @@ typedef enum {
         tableFrame.origin.x = kMenuMinX;
     }
     
-    float duration = (ABS(detailFrame.origin.x - _detailNavController.view.frame.origin.x) / [self getMaxX]) * 0.3f;
+    float duration = (ABS(detailFrame.origin.x - _detailNavController.view.frame.origin.x) / [self getMaxX]) * 0.5f;
     float alpha = 1 - (detailFrame.origin.x / [self getMaxX]);
     
     [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
         _detailNavController.view.frame = detailFrame;
         _tableViewController.view.frame = tableFrame;
+        _shadowViewController.view.frame = tableFrame;
         _shadowViewController.view.alpha = alpha;
     } completion:^(BOOL finished){
         // Nothing to see here!!
@@ -151,11 +152,11 @@ typedef enum {
 {
     if (_detailNavController.view.frame.origin.x == [self getMaxX])
     {
-        [self snapViewsOpen:NO];
+        [self snapViews:NO];
     }
     else
     {
-        [self snapViewsOpen:YES];
+        [self snapViews:YES];
     }
 }
 
@@ -168,28 +169,33 @@ typedef enum {
     
     if ([gesture state] == UIGestureRecognizerStateChanged)
     {
+        _tableViewController.view.hidden = detailViewFrame.origin.x < 0.0f;
+        _shadowViewController.view.hidden = detailViewFrame.origin.x < 0.0f;
+        
         detailViewFrame.origin.x = detailViewFrame.origin.x + point.x;
         tableViewFrame.origin.x = (detailViewFrame.origin.x / [self getMaxX] * 96.0f) - 96.0f;
+       
+        [view setFrame:detailViewFrame];
         
-        if (detailViewFrame.origin.x >= 0.0f && detailViewFrame.origin.x <= [self getMaxX])
+        if (detailViewFrame.origin.x < [self getMaxX])
         {
-            [view setFrame:detailViewFrame];
             [_tableViewController.view setFrame:tableViewFrame];
-            
-            [gesture setTranslation:CGPointZero inView:view.superview];
-            
-            _shadowViewController.view.alpha = 1 - (detailViewFrame.origin.x / [self getMaxX]);
+            [_shadowViewController.view setFrame:tableViewFrame];
         }
+        
+        [gesture setTranslation:CGPointZero inView:view.superview];
+        
+        _shadowViewController.view.alpha = 1 - (detailViewFrame.origin.x / [self getMaxX]);
     }
     else if ([gesture state] == UIGestureRecognizerStateEnded)
     {
         if (detailViewFrame.origin.x < [self getMaxX]/ 2.0f)
         {
-            [self snapViewsOpen:NO];
+            [self snapViews:NO];
         }
         else
         {
-            [self snapViewsOpen:YES];
+            [self snapViews:YES];
         }
     }
 }

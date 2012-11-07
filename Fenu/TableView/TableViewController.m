@@ -10,7 +10,6 @@
 #import "TableViewController.h"
 #import "UIViewController+StackViewController.h"
 
-#import "UIImage+Helper.h"
 
 #import <AFNetworking/AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
@@ -110,30 +109,7 @@
     if (_data.count > 0)
     {
         NSDictionary *entry = [_data objectAtIndex:[indexPath row]];
-        
-        NSString *imageURL = [entry objectForKey:@"image"];
-        NSString *author = [entry objectForKey:@"author"];
-        NSString *title = [entry objectForKey:@"title"];
-        NSDate *created = [NSDate dateWithTimeIntervalSince1970:[[entry objectForKey:@"updated"] intValue]];
-        
-        NSError *error = nil;
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageURL]];
-        [request setTimeoutInterval:25.0];
-        
-        NSData *imageData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-        UIImage *image = [UIImage imageWithData:imageData];
-
-        if (image == nil)
-        {
-            image = [UIImage imageNamed:@"stock-image"];
-        }
-        
-        UIImage *thumbnail = [image thumbnail];
-        
-        cell.author.text = author;
-        cell.textLabel.text = title;
-        cell.detailTextLabel.text = created.description;
-        cell.imageView.image = thumbnail;
+        [cell configureWithEntry:entry];
     }
     
     return cell;

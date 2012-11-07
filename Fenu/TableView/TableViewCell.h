@@ -15,4 +15,6 @@
 
 @property (nonatomic, retain) UILabel *author;
 
+- (void)configureWithEntry:(id)entry;
+
 @end

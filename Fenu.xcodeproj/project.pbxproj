@@ -31,6 +31,10 @@
 		986F8E8C1608B61C00AAA7E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620193160409EA0072CB92 /* Default.png */; };
 		986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620195160409EA0072CB92 /* Default@2x.png */; };
 		986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98620197160409EA0072CB92 /* Default-568h@2x.png */; };
+		988EEADA164AF460006BEBFE /* stock-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EEAD9164AF460006BEBFE /* stock-image@2x.png */; };
+		988EEADB164AF460006BEBFE /* stock-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EEAD9164AF460006BEBFE /* stock-image@2x.png */; };
+		988EEADE164AF4B6006BEBFE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 988EEADD164AF4B6006BEBFE /* Podfile */; };
+		988EEADF164AF4B6006BEBFE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 988EEADD164AF4B6006BEBFE /* Podfile */; };
 		98AAA2CA161B5DCB0056EFCD /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C03161269EF002E7F6D /* TableViewController.m */; };
 		98AAA2CB161B5DCB0056EFCD /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0C16126A3D002E7F6D /* TableViewCell.m */; };
 		98AAA2CC161B5DCB0056EFCD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C06161269FE002E7F6D /* DetailViewController.m */; };
@@ -76,6 +80,8 @@
 		98620195160409EA0072CB92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		98620197160409EA0072CB92 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		988EEAD9164AF460006BEBFE /* stock-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stock-image@2x.png"; path = "Assets/stock-image@2x.png"; sourceTree = "<group>"; };
+		988EEADD164AF4B6006BEBFE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		98DD0C02161269EF002E7F6D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = TableView/TableViewController.h; sourceTree = "<group>"; };
 		98DD0C03161269EF002E7F6D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = TableView/TableViewController.m; sourceTree = "<group>"; };
 		98DD0C05161269FE002E7F6D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = DetailView/DetailViewController.h; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		9838686F160B9B5C0077C817 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				988EEAD9164AF460006BEBFE /* stock-image@2x.png */,
 				98DD0C761613FC68002E7F6D /* stock-image.png */,
 				98386870160B9B6C0077C817 /* arrow.png */,
 			);
@@ -171,6 +178,7 @@
 				98620180160409EA0072CB92 /* Frameworks */,
 				9862017E160409EA0072CB92 /* Products */,
 				F279119F91A3406C9D2A4734 /* Pods.xcconfig */,
+				988EEADD164AF4B6006BEBFE /* Podfile */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -337,6 +345,8 @@
 				98620198160409EA0072CB92 /* Default-568h@2x.png in Resources */,
 				98386871160B9B6C0077C817 /* arrow.png in Resources */,
 				98DD0C771613FC68002E7F6D /* stock-image.png in Resources */,
+				988EEADA164AF460006BEBFE /* stock-image@2x.png in Resources */,
+				988EEADE164AF4B6006BEBFE /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +360,8 @@
 				986F8E8D1608B61C00AAA7E6 /* Default@2x.png in Resources */,
 				986F8E8E1608B61C00AAA7E6 /* Default-568h@2x.png in Resources */,
 				98B0716B1611688300A0F964 /* arrow.png in Resources */,
+				988EEADB164AF460006BEBFE /* stock-image@2x.png in Resources */,
+				988EEADF164AF4B6006BEBFE /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

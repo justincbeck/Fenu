@@ -9,6 +9,8 @@
 #import "TableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
+#import "UIImage+Helper.h"
+
 @implementation TableViewCell
 
 @synthesize author = _author;
@@ -40,6 +42,33 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)configureWithEntry:(id)entry
+{
+    NSString *imageURL = [entry objectForKey:@"image"];
+    NSString *author = [entry objectForKey:@"author"];
+    NSString *title = [entry objectForKey:@"title"];
+    NSDate *created = [NSDate dateWithTimeIntervalSince1970:[[entry objectForKey:@"updated"] intValue]];
+    
+    NSError *error = nil;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:imageURL]];
+    [request setTimeoutInterval:25.0];
+    
+    NSData *imageData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    UIImage *image = [UIImage imageWithData:imageData];
+
+    if (image == nil)
+    {
+        image = [UIImage imageNamed:@"stock-image"];
+    }
+    
+    UIImage *thumbnail = [image thumbnail];
+    
+    self.author.text = author;
+    self.textLabel.text = title;
+    self.detailTextLabel.text = created.description;
+    self.imageView.image = thumbnail;
 }
 
 @end
