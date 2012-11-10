@@ -35,6 +35,8 @@
 		988EEADB164AF460006BEBFE /* stock-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 988EEAD9164AF460006BEBFE /* stock-image@2x.png */; };
 		988EEADE164AF4B6006BEBFE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 988EEADD164AF4B6006BEBFE /* Podfile */; };
 		988EEADF164AF4B6006BEBFE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 988EEADD164AF4B6006BEBFE /* Podfile */; };
+		988EEB2A164D9637006BEBFE /* HorizontalPanGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EEB29164D9637006BEBFE /* HorizontalPanGestureDelegate.m */; };
+		988EEB2D164D964C006BEBFE /* VerticalPanGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 988EEB2C164D964C006BEBFE /* VerticalPanGestureDelegate.m */; };
 		98AAA2CA161B5DCB0056EFCD /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C03161269EF002E7F6D /* TableViewController.m */; };
 		98AAA2CB161B5DCB0056EFCD /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C0C16126A3D002E7F6D /* TableViewCell.m */; };
 		98AAA2CC161B5DCB0056EFCD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0C06161269FE002E7F6D /* DetailViewController.m */; };
@@ -82,6 +84,10 @@
 		986F8E921608B61C00AAA7E6 /* FenuQA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FenuQA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		988EEAD9164AF460006BEBFE /* stock-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "stock-image@2x.png"; path = "Assets/stock-image@2x.png"; sourceTree = "<group>"; };
 		988EEADD164AF4B6006BEBFE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		988EEB28164D9637006BEBFE /* HorizontalPanGestureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorizontalPanGestureDelegate.h; path = Delegates/HorizontalPanGestureDelegate.h; sourceTree = "<group>"; };
+		988EEB29164D9637006BEBFE /* HorizontalPanGestureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalPanGestureDelegate.m; path = Delegates/HorizontalPanGestureDelegate.m; sourceTree = "<group>"; };
+		988EEB2B164D964C006BEBFE /* VerticalPanGestureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerticalPanGestureDelegate.h; path = Delegates/VerticalPanGestureDelegate.h; sourceTree = "<group>"; };
+		988EEB2C164D964C006BEBFE /* VerticalPanGestureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerticalPanGestureDelegate.m; path = Delegates/VerticalPanGestureDelegate.m; sourceTree = "<group>"; };
 		98DD0C02161269EF002E7F6D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = TableView/TableViewController.h; sourceTree = "<group>"; };
 		98DD0C03161269EF002E7F6D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = TableView/TableViewController.m; sourceTree = "<group>"; };
 		98DD0C05161269FE002E7F6D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = DetailView/DetailViewController.h; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 		98620187160409EA0072CB92 /* Fenu */ = {
 			isa = PBXGroup;
 			children = (
+				988EEB26164D95EA006BEBFE /* Delegates */,
 				9840EE1A16153C8300D91196 /* Categories */,
 				98DD0C01161269DB002E7F6D /* TableViewController */,
 				98DD0C00161269D3002E7F6D /* DetailViewController */,
@@ -233,6 +240,17 @@
 				98620197160409EA0072CB92 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		988EEB26164D95EA006BEBFE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				988EEB28164D9637006BEBFE /* HorizontalPanGestureDelegate.h */,
+				988EEB29164D9637006BEBFE /* HorizontalPanGestureDelegate.m */,
+				988EEB2B164D964C006BEBFE /* VerticalPanGestureDelegate.h */,
+				988EEB2C164D964C006BEBFE /* VerticalPanGestureDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 		98DD0BFF161269C7002E7F6D /* ContainerViewController */ = {
@@ -412,6 +430,8 @@
 				982FE26D16146E83005C6CD5 /* DetailView.m in Sources */,
 				9840EE1E16153CC200D91196 /* UIImage+Helper.m in Sources */,
 				98DF5E7816430530001E8CE3 /* UIViewController+StackViewController.m in Sources */,
+				988EEB2A164D9637006BEBFE /* HorizontalPanGestureDelegate.m in Sources */,
+				988EEB2D164D964C006BEBFE /* VerticalPanGestureDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

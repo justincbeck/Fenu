@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PullRefreshTableViewController.h"
 
-@interface TableViewController : PullRefreshTableViewController
+@interface TableViewController : UITableViewController
+
+@property (nonatomic, strong) NSString *dataURL;
 
 @end

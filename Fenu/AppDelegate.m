@@ -19,6 +19,21 @@
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
     
+    NSMutableArray *dataURLs = [[NSMutableArray alloc] init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *blogUrlString = @"http://biakelseyapp.willowtreemobile.com/blog.json";
+    [dataURLs addObject:blogUrlString];
+    
+    NSString *youTubeUrlString = @"http://biakelseyapp.willowtreemobile.com/youtube.json";
+    [dataURLs addObject:youTubeUrlString];
+    
+    NSString *conferenceUrlString = @"http://biakelseyapp.willowtreemobile.com/conferences.json";
+    [dataURLs addObject:conferenceUrlString];
+    
+    [defaults setObject:dataURLs forKey:@"dataURLs"];
+    [defaults synchronize];
+    
 //    [[DCIntrospect sharedIntrospector] start];
     
     return YES;

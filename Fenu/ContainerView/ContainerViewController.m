@@ -13,18 +13,18 @@
 #import "DetailViewController.h"
 #import "UIViewController+StackViewController.h"
 
-#define kMenuMinX -96.0f
-
-typedef enum {
-    kOpen,
-    kClosed
-} Position;
+#import "HorizontalPanGestureDelegate.h"
+#import "VerticalPanGestureDelegate.h"
 
 @interface ContainerViewController ()
 {
-    TableViewController *_tableViewController;
+    NSArray *_dataURLs;
+    NSMutableArray *_tableViews;
+    
     UINavigationController *_detailNavController;
-    UIViewController *_shadowViewController;
+    
+    HorizontalPanGestureDelegate *_horizontalPanGestureDelegate;
+    VerticalPanGestureDelegate *_verticalPanGestureDelegate;
 }
 
 @end
@@ -41,7 +41,32 @@ typedef enum {
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _tableViewController = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        _dataURLs = [defaults objectForKey:@"dataURLs"];
+        _tableViews = [[NSMutableArray alloc] init];
+        
+        _horizontalPanGestureDelegate = [[HorizontalPanGestureDelegate alloc] init];
+        
+        for (int i = 0; i < 2; i++)
+        {
+            TableViewController *controller = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+            controller.dataURL = [_dataURLs objectAtIndex:i];
+            controller.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            controller.view.layer.borderWidth = 1.0f;
+            
+            [self addChildViewController:controller];
+            [controller setContainerViewController:self];
+            
+            [self.view addSubview:controller.view];
+            [_tableViews addObject:controller.view];
+            
+            float x = (i * 299.0f) + 14.0f;
+            controller.view.frame = CGRectMake(x, 0.0f, 292.0f, 568.0f);
+            
+            UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(horizontalPan:)];
+            gestureRecognizer.delegate = _horizontalPanGestureDelegate;
+            [controller.view addGestureRecognizer:gestureRecognizer];
+        }
     }
     return self;
 }
@@ -56,153 +81,66 @@ typedef enum {
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+}
 
-    [self addChildViewController:_tableViewController];
-    [_tableViewController setContainerViewController:self];
-    
-    CGRect frame = _tableViewController.view.frame;
-    frame.origin.y -= [[UIApplication sharedApplication] statusBarFrame].size.height;
-    _tableViewController.view.frame = frame;
-    
-    [self.view addSubview:_tableViewController.view];
-    
-    _shadowViewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-    _shadowViewController.view.alpha = 0.0f;
-    _shadowViewController.view.backgroundColor = [UIColor blackColor];
-    _shadowViewController.view.frame = _tableViewController.view.frame;
-    
-    [self addChildViewController:_shadowViewController];
-    [self.view insertSubview:_shadowViewController.view aboveSubview:_tableViewController.view];
+- (void)horizontalPan:(id)sender
+{
+    UIPanGestureRecognizer *gesture = (UIPanGestureRecognizer *) sender;
+   
+    if (gesture.state == UIGestureRecognizerStateChanged)
+    {
+        for (UIView *view in _tableViews)
+        {
+            CGPoint translation = [gesture translationInView:view.superview];
+            CGRect frame = view.frame;
+            frame.origin.x = frame.origin.x + translation.x;
+            view.frame = frame;
+        }
+        
+        [gesture setTranslation:CGPointZero inView:self.view];
+    }
+    else if (gesture.state == UIGestureRecognizerStateEnded)
+    {
+        [self snapViews];
+    }
+}
+
+- (void)snapViews
+{
+    [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
+        for (UIView *view in _tableViews)
+        {
+            CGRect frame = view.frame;
+            int index = [_tableViews indexOfObject:view];
+            frame.origin.x = (index * 299.0f) + 14.0f;
+            view.frame = frame;
+        }
+    } completion:^(BOOL finished) {
+        // Nothing to see here
+    }];
 }
 
 - (void)entrySelected:(id)entry
 {
-    if (_detailNavController != nil)
-    {
-        [_detailNavController.view removeFromSuperview];
-        [_detailNavController removeFromParentViewController];
-    }
-    
-    _detailNavController = [self createControllerWithEntry:entry];
-    _detailNavController.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    _detailNavController.view.layer.shadowOpacity = 1.0f;
-    _detailNavController.view.layer.shadowRadius = 5.0f;
-    _detailNavController.view.layer.shadowOffset = CGSizeMake(0.0f, 3.0f);
-    _detailNavController.view.clipsToBounds = NO;
-    
-    [self addChildViewController:_detailNavController];
-    [self.view addSubview:_detailNavController.view];
-    
-    CGRect frame = _detailNavController.view.frame;
-    frame.origin.x = [self getMaxX];
-    _detailNavController.view.frame = frame;
-    
-    [self snapViews:NO];
+    return;
 }
 
 - (UINavigationController *)createControllerWithEntry:(id)entry
 {
-    UIPanGestureRecognizer* gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+    UIPanGestureRecognizer* gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(verticalPanGesture:)];
     [gestureRecognizer setMinimumNumberOfTouches:1];
     [gestureRecognizer setMaximumNumberOfTouches:1];
     
-    UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleDone target:self action:@selector(showMenu:)];
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithEntry:entry];
-    detailViewController.navigationItem.leftBarButtonItem = menuBarButtonItem;
     
     _detailNavController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     _detailNavController.view.layer.borderWidth = 1.0f;
     _detailNavController.view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _detailNavController.navigationBarHidden = YES;
     
     [_detailNavController.view addGestureRecognizer:gestureRecognizer];
     
     return _detailNavController;
-}
-
-- (void)snapViews:(Boolean)open
-{
-    CGRect detailFrame = _detailNavController.view.frame;
-    CGRect tableFrame = _tableViewController.view.frame;
-    
-    if (open)
-    {
-        detailFrame.origin.x = [self getMaxX];
-        tableFrame.origin.x = 0.0f;
-    }
-    else
-    {
-        detailFrame.origin.x = 0.0f;
-        tableFrame.origin.x = kMenuMinX;
-    }
-    
-    float duration = (ABS(detailFrame.origin.x - _detailNavController.view.frame.origin.x) / [self getMaxX]) * 0.5f;
-    float alpha = 1 - (detailFrame.origin.x / [self getMaxX]);
-    
-    [UIView animateWithDuration:duration delay:0.0f options:UIViewAnimationCurveEaseInOut animations:^{
-        _detailNavController.view.frame = detailFrame;
-        _tableViewController.view.frame = tableFrame;
-        _shadowViewController.view.frame = tableFrame;
-        _shadowViewController.view.alpha = alpha;
-    } completion:^(BOOL finished){
-        // Nothing to see here!!
-    }];
-}
-
-- (void)showMenu:(id)sender
-{
-    if (_detailNavController.view.frame.origin.x == [self getMaxX])
-    {
-        [self snapViews:NO];
-    }
-    else
-    {
-        [self snapViews:YES];
-    }
-}
-
-- (void)panGesture:(UIPanGestureRecognizer *)gesture
-{
-    UIView *view = [gesture view];
-    CGPoint point = [gesture translationInView:view.superview];
-    CGRect detailViewFrame = view.frame;
-    CGRect tableViewFrame = _tableViewController.view.frame;
-    
-    if ([gesture state] == UIGestureRecognizerStateChanged)
-    {
-        _tableViewController.view.hidden = detailViewFrame.origin.x < 0.0f;
-        _shadowViewController.view.hidden = detailViewFrame.origin.x < 0.0f;
-        
-        detailViewFrame.origin.x = detailViewFrame.origin.x + point.x;
-        tableViewFrame.origin.x = (detailViewFrame.origin.x / [self getMaxX] * 96.0f) - 96.0f;
-       
-        [view setFrame:detailViewFrame];
-        
-        if (detailViewFrame.origin.x < [self getMaxX])
-        {
-            [_tableViewController.view setFrame:tableViewFrame];
-            [_shadowViewController.view setFrame:tableViewFrame];
-        }
-        
-        [gesture setTranslation:CGPointZero inView:view.superview];
-        
-        _shadowViewController.view.alpha = 1 - (detailViewFrame.origin.x / [self getMaxX]);
-    }
-    else if ([gesture state] == UIGestureRecognizerStateEnded)
-    {
-        if (detailViewFrame.origin.x < [self getMaxX]/ 2.0f)
-        {
-            [self snapViews:NO];
-        }
-        else
-        {
-            [self snapViews:YES];
-        }
-    }
-}
-
-- (float)getMaxX
-{
-    return _detailNavController.view.frame.size.width - 63.0f;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

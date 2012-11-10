@@ -29,6 +29,10 @@
     if (self) {
         _tableViewStyle = style;
         _data = [[NSArray alloc] init];
+        
+        self.refreshControl = [[UIRefreshControl alloc] init];
+        [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+        
     }
     return self;
 }
@@ -43,8 +47,6 @@
     [super viewDidLoad];
 
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self refresh];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,18 +68,21 @@
 
 - (void)refresh
 {
-    NSURL *url = [NSURL URLWithString:@"http://breakingmedia.willowtreemobile.com/dealbreaker.json?limit=10"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURL *blogUrl = [NSURL URLWithString:self.dataURL];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:blogUrl];
 
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-        [self stopLoading];
+        [self.refreshControl endRefreshing];
 
         _data = [(NSDictionary *)JSON objectForKey:@"entries"];
         
         [[self tableView] reloadData];
         
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [self.refreshControl endRefreshing];
+    }];
 
     [operation start];
 }
